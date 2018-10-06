@@ -35,6 +35,7 @@ public class Clima implements Serializable {
 	private Ciudad ciudad;
 
 	public Clima() {
+		
 	}
 
 	public Integer getIdclima() {

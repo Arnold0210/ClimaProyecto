@@ -27,6 +27,7 @@ public class Ciudad implements Serializable {
 	private Set<Clima> climas;
 
 	public Ciudad() {
+		
 	}
 
 	public Integer getIdciudad() {
