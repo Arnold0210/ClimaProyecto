@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="https://bootsfaces.net/ui"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+<ui:composition template="/template_base.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Inicio" />
+	</ui:define>
+	<ui:define name="current"><span class="sr-only">(current)</span></ui:define>
+	<ui:define name="content">
+		<h:form class="form-inline">
+			<h:dataTable styleClass="table" style="width:500px">
+				<h:column>
+					<f:facet name="header">Ciudad</f:facet>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Humedad</f:facet>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Temperatura</f:facet>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
