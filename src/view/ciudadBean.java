@@ -3,9 +3,9 @@ package view;
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
-public class CiudadBean {
+public class ciudadBean {
 	private String nombreCiudad;
-	
+
 	public String getNombreCiudad() {
 		return nombreCiudad;
 	}
@@ -13,4 +13,7 @@ public class CiudadBean {
 	public void setNombreCiudad(String nombreCiudad) {
 		this.nombreCiudad = nombreCiudad;
 	}
+	
+
+
 }

@@ -8,6 +8,22 @@
 	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
 <ui:composition>
 	<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 70 || document.documentElement.scrollTop > 70) {
+        document.getElementById("go-top").style.display = "block";
+    } else {
+        document.getElementById("go-top").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 </script>
 	<footer class="footer-area footer--light">
 	<div class="footer-big">
@@ -23,10 +39,12 @@
 								implementación de JSF, JavaEE, RESTful, JPA, para la asignatura
 								de Arquitectura de Software.</p>
 							<ul class="contact-details">
-								<li><span class="icon-earphones"></span> Contacto: <a
-									href="tel:3124884360">(+57) 312-488-43-60</a></li>
-								<li><span class="icon-envelope-open"></span> <a
-									href="mailto:ajherrera69@ucatolica.edu.co">ajherrera69@ucatolica.edu.co</a></li>
+								<li><span class="icon icon-phone"></span>Contacto: <a
+									href="tel:3124884360">(+57)312-488-43-60</a></li>
+								<li><span class="icon icon-envelope-alt"></span>Correo: 
+								<a href="mailto:ajherrera69@ucatolica.edu.co">ajherrera69@ucatolica.edu.co</a></li>
+								<li><span class="icon icon-github-sign"></span>Github: 
+								<a href="https://github.com/Arnold0210" target ="_blank">Arnold0210</a></li>
 							</ul>
 						</div>
 					</div>
@@ -57,7 +75,7 @@
 							</ul>
 						</div>
 						<!-- end /.footer-menu -->
-					
+
 					</div>
 					<!-- Ends: .footer-widget -->
 				</div>
@@ -75,12 +93,12 @@
 				<div class="col-md-12">
 					<div class="copyright-text">
 						<p>
-							© 2018 <a href="https://www.ucatolica.edu.co/portal/">Universidad
+							© 2018 <a href="https://www.ucatolica.edu.co/portal/" target="_blank">Universidad
 								Católica de Colombia</a>. Todos los derechos reservados. Creada por:
-							<a href="#">Arnold Julian Herrera Quiñones </a>
+							<a href="">Arnold Julian Herrera Quiñones </a>
 						</p>
 					</div>
-					<div class="go_top" onclick="window.scroll(0, 0)">
+					<div id="go-top" class="go_top" onclick="topFunction()">
 						<span class="icon-arrow-up"></span>
 					</div>
 				</div>

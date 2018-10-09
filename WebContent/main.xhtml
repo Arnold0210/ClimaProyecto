@@ -9,8 +9,8 @@
 <ui:composition>
 	<header class="header"> <nav
 		class="navbar navbar-expand-lg navbar-light bg-primary"> <a
-		class="navbar-brand" href="index.xhtml"><img
-		src="images/clima_pinterest.png" height="150px" /></a>
+		class="navbar-brand" href=""><img src="images/clima_pinterest.png"
+		height="120px" /></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
 		aria-expanded="false" aria-label="Toggle navigation">
@@ -18,18 +18,22 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarNavDropdown">
 		<ul class="navbar-nav">
-			<li class="nav-item active"><a class="nav-link"
-				href="index.xhtml">Inicio <ui:insert name = "current"></ui:insert>
+			<li class="nav-item active"><a class="nav-link" href="">Inicio
+					<ui:insert name="current"></ui:insert>
 			</a></li>
 			<li class="nav-item"><a class="nav-link" href="#">Buscar por
 					conjunto de ciudades</a></li>
+			<span style="width: 470px"></span>
+			<li class="nav-item">
+			<h:form class="form-inline">
+					<h:inputText value="#{ciudadBean.nombreCiudad}"
+						class="form-control mr-sm-2" type="search"
+						a:placeholder="Buscar Ciudad" aria-label="Search" />
+					<h:commandButton action="#{ciudadBean.guardar()}" value="Buscar"
+						styleClass="btn btn btn-success my-2 my-sm-0" />
+			</h:form></li>
 		</ul>
 	</div>
-	<h:form class="form-inline">
-		<h:inputText value="#{ciudadBean.nombreCiudad}"
-			class="form-control mr-sm-2" type="search"
-			a:placeholder="Buscar Ciudad" aria-label="Search" />
-		<button class="btn btn btn-success my-2 my-sm-0" type="submit">Buscar</button>
-	</h:form> </nav> </header>
+	</nav> </header>
 </ui:composition>
 </html>

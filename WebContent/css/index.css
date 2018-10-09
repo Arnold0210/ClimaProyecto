@@ -3,6 +3,7 @@
 * {
 	font-family: sans-serif;
 	margin-right: 2px;
+	font-size: large;
 }
 
 .degrees {
@@ -20,13 +21,18 @@
 }
 
 div {
-	margin-left: 14px;
+	margin-left:8px;
 }
 
 .background_header {
+	background:url("images/background-body.jpg")	100% 100% no-repeat;
+}
+|
+ body {
 	background-image:
 		url("https://www.nesdis.noaa.gov/sites/all/themes/nesdis_bootstrap/images/weather_illustration.jpg")
 		100% 100% no-repeat;
+	background-color: #cccccc;
 }
 
 @import
@@ -48,10 +54,12 @@ li {
 	list-style: none
 }
 
-a{
-	color:  black;	
+a {
+	color: black;
 }
-a:focus, a:hover {
+
+a:focus,a:hover {
+	
 	text-decoration: none;
 	-webkit-transition: .3s ease;
 	-o-transition: .3s ease;
@@ -61,6 +69,7 @@ a:focus, a:hover {
 a:focus {
 	outline: 0
 }
+
 a:hover, a:active {
 	color: red;
 	text-decoration: underline;
@@ -116,7 +125,7 @@ h4 {
 }
 
 .footer-big {
-	padding: 105px 0 65px 0
+	padding: 25px 0 5px 0
 }
 
 .footer-big .footer-widget {
@@ -136,7 +145,7 @@ h4 {
 }
 
 .footer-menu ul li a {
-	font-size: 15px;
+	font-size: 17px;
 	line-height: 32px;
 	-webkit-transition: .3s;
 	-o-transition: .3s;
@@ -160,7 +169,7 @@ h4 {
 .mini-footer {
 	background: #192027;
 	text-align: center;
-	padding: 32px 0
+	padding: 12px 0
 }
 
 .mini-footer p {
@@ -206,9 +215,56 @@ h4 {
 .widget-about .contact-details li a {
 	color: #5867dd
 }
-
+.widget-about .contact-details li a:hover{
+	color:red;
+}
 @media ( max-width :991px) {
 	.footer-menu {
 		padding-left: 0
 	}
 }
+
+#return-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.7);
+	width: 50px;
+	height: 50px;
+	display: block;
+	text-decoration: none;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	border-radius: 35px;
+	display: none;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#return-to-top i {
+	color: #fff;
+	margin: 0;
+	position: relative;
+	left: 16px;
+	top: 13px;
+	font-size: 19px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+	background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover i {
+	color: #fff;
+	top: 5px;
+}
+i{color: #444;}

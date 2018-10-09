@@ -23,24 +23,27 @@
 		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 		crossorigin="anonymous"></script>
+	<link
+		href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+		rel="stylesheet"/>
 	<link href="/css/mystyle.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<title>Arduino Temperatura :: <ui:insert name="title" /></title>
-	<!-- <link rel="icon" href="/images/favicon.ico" />  -->
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
 </h:head>
-<h:body>
+<h:body id = "body">
 	<div id="layout">
 		<div id="logo"></div>
 		<ui:include src="/main.xhtml" />
 	</div>
-	<div id= "content">
-		<ui:insert name = "content">
+	<div id="content">
+		<ui:insert name="content">
 			<span>Página en construcción.</span>
 		</ui:insert>
 	</div>
-	<div id = "footer">
-	<ui:include src="/footer.xhtml" />
-	<p><a href="#">&copy;</a></p>
+	<div id="footer">
+		<ui:include src="/footer.xhtml" />
 	</div>
 </h:body>
 </html>
