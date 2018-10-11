@@ -7,7 +7,7 @@ import javax.persistence.TemporalType;
 
 import model.DTO.Ciudad;
 
-@ManagedBean(name = "ClimaBean")
+@ManagedBean
 public class climaBean {
 	private double temperatura;
 	private double humedad;

@@ -24,14 +24,13 @@
 			<li class="nav-item"><a class="nav-link" href="#">Buscar por
 					conjunto de ciudades</a></li>
 			<span style="width: 470px"></span>
-			<li class="nav-item">
-			<h:form class="form-inline">
+			<li class="nav-item"><h:form class="form-inline">
 					<h:inputText value="#{ciudadBean.nombreCiudad}"
 						class="form-control mr-sm-2" type="search"
 						a:placeholder="Buscar Ciudad" aria-label="Search" />
-					<h:commandButton action="#{ciudadBean.guardar()}" value="Buscar"
+					<h:commandButton action="#{ciudadBean.buscarCiudad()}" value="Buscar"
 						styleClass="btn btn btn-success my-2 my-sm-0" />
-			</h:form></li>
+				</h:form></li>
 		</ul>
 	</div>
 	</nav> </header>

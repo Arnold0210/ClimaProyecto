@@ -29,6 +29,11 @@ public class controllerCiudad {
 		Ciudad ciudad = DAOcity.select(id);
 		return ciudad;
 	}
+	public Ciudad selectCiudadNombre(String nombre) {
+		DAOcity = new CiudadDAO();
+		Ciudad ciudad = DAOcity.select(nombre);
+		return ciudad;
+	}
 
 	public List<Ciudad> selectAllCities() {
 		DAOcity = new CiudadDAO();

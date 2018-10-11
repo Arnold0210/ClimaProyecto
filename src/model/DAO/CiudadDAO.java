@@ -48,6 +48,11 @@ public class CiudadDAO {
 		em.close();
 		return ciudad;
 	}
+	public Ciudad select(String nombre) {
+		Ciudad ciudad = em.find(Ciudad.class, nombre);
+		em.close();
+		return ciudad;
+	}
 
 	public List<Ciudad> selectall() {
 		@SuppressWarnings("unchecked")
