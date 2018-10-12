@@ -26,16 +26,15 @@ public class Clima implements Serializable {
 
 	private Time hora;
 
-	private double humedad;
+	private Double humedad;
 
-	private double temperatura;
+	private Double temperatura;
 
 	//bi-directional many-to-one association to Ciudad
 	@ManyToOne
 	private Ciudad ciudad;
 
 	public Clima() {
-		
 	}
 
 	public Integer getIdclima() {

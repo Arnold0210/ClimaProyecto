@@ -15,7 +15,7 @@ public class controllerCiudad {
 		Ciudad ciudad = new Ciudad();
 		try {
 			ciudad.setIdciudad(DAOcity.searchId());
-			ciudad.setNombre(nombre);
+			ciudad.setNombre(nombre.toUpperCase());
 			ciudad.setEstado(estado);
 			DAOcity.create(ciudad);
 		} catch (Exception e) {
@@ -27,11 +27,6 @@ public class controllerCiudad {
 	public Ciudad selectCiudad(int id) {
 		DAOcity = new CiudadDAO();
 		Ciudad ciudad = DAOcity.select(id);
-		return ciudad;
-	}
-	public Ciudad selectCiudadNombre(String nombre) {
-		DAOcity = new CiudadDAO();
-		Ciudad ciudad = DAOcity.select(nombre);
 		return ciudad;
 	}
 

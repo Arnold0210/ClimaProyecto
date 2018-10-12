@@ -1,10 +1,13 @@
 package model.DAO;
 
 import java.util.List;
+
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+
 
 import model.DTO.Ciudad;
 
@@ -48,15 +51,9 @@ public class CiudadDAO {
 		em.close();
 		return ciudad;
 	}
-	public Ciudad select(String nombre) {
-		Ciudad ciudad = em.find(Ciudad.class, nombre);
-		em.close();
-		return ciudad;
-	}
 
 	public List<Ciudad> selectall() {
-		@SuppressWarnings("unchecked")
-		List<Ciudad> ciudades = em.createQuery("from ciudad c").getResultList();
+		List<Ciudad> ciudades = em.createQuery("SELECT c FROM Ciudad c ORDER BY c.nombre",Ciudad.class).getResultList();
 		em.close();
 		return ciudades;
 	}
@@ -95,3 +92,4 @@ public class CiudadDAO {
 	}
 
 }
+

@@ -2,10 +2,13 @@ package controller;
 
 import java.sql.Time;
 import java.sql.Timestamp;
+
+
 import model.DAO.ClimaDAO;
 import model.DTO.Ciudad;
 import model.DTO.Clima;
 import java.util.Calendar;
+import java.util.List;
 
 public class controllerClima {
 	ClimaDAO DAOClima;
@@ -27,5 +30,16 @@ public class controllerClima {
 		
 			e.printStackTrace();
 		}
+	}
+	public Clima selectCiudad(int id) {
+		DAOClima = new ClimaDAO();
+		Clima clima= DAOClima.select(id);
+		return clima;
+	}
+	
+	public List<Clima> selectAllCities() {
+		DAOClima = new ClimaDAO();
+		List<Clima> climas = DAOClima.selectall();
+		return climas;
 	}
 }

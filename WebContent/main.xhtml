@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:b="https://bootsfaces.net/ui"
+	xmlns:b="https://bootsfaces.net/ui" xmlns:p="https://primefaces.org/ui"
 	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
 <ui:composition>
@@ -25,11 +25,10 @@
 					conjunto de ciudades</a></li>
 			<span style="width: 470px"></span>
 			<li class="nav-item"><h:form class="form-inline">
-					<h:inputText value="#{ciudadBean.nombreCiudad}"
-						class="form-control mr-sm-2" type="search"
-						a:placeholder="Buscar Ciudad" aria-label="Search" />
-					<h:commandButton action="#{ciudadBean.buscarCiudad()}" value="Buscar"
-						styleClass="btn btn btn-success my-2 my-sm-0" />
+					<h:selectOneMenu id = "ciudadlista" styleClass="custom-select custom-select-sm" value="#{ciudadBean.ciudadd}"  required="true" onselect="">
+						<f:selectItem noSelectionOption="true" itemValue="0" itemLabel="-- Seleccione una ciudad --" />
+						<f:selectItems value="#{ciudadBean.listaciudades}" />
+					</h:selectOneMenu>
 				</h:form></li>
 		</ul>
 	</div>

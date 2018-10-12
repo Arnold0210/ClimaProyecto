@@ -10,20 +10,26 @@
 	<ui:define name="title">
 		<h:outputText value="Inicio" />
 	</ui:define>
-	<ui:define name="current"><span class="sr-only">(current)</span></ui:define>
+	<ui:define name="current">
+		<span class="sr-only">(current)</span>
+	</ui:define>
 	<ui:define name="content">
 		<h:form class="form-inline">
-			<h:dataTable styleClass="table" style="width:500px">
-				<h:column>
-					<f:facet name="header">Ciudad</f:facet>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Humedad</f:facet>
-				</h:column>
-				<h:column>
-					<f:facet name="header">Temperatura</f:facet>
-				</h:column>
-			</h:dataTable>
+			<div class="table-responsive">
+				<h:dataTable
+					styleClass="table table-striped table-hover table-bordered table-sm"
+					style="width:500px">
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Humedad</f:facet>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Temperatura</f:facet>
+					</h:column>
+				</h:dataTable>
+			</div>
 		</h:form>
 	</ui:define>
 </ui:composition>
