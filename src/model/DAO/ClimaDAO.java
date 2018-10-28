@@ -22,11 +22,19 @@ public class ClimaDAO {
 
 	public Boolean create(Clima clima) {
 		try {
-			em.getTransaction().begin();
-			em.persist(clima);
-			em.getTransaction().commit();
-			em.close();
-			return true;
+			if(clima.getHumedad()!=0 && clima.getTemperatura()!=0) {
+				em.getTransaction().begin();
+				em.persist(clima);
+				em.getTransaction().commit();
+				em.close();
+				return true;
+			}else {
+				System.err.println("No existen valores de temperatura \n");
+				em.getTransaction().rollback();
+				em.close();
+				return false;
+			}
+			
 		} catch (Exception e) {
 			// 
 			System.err.println("Excepcion \n" + e);

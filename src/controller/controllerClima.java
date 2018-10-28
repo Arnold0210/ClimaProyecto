@@ -27,7 +27,6 @@ public class controllerClima {
 			clima.setHora(hora);
 			DAOClima.create(clima);
 		} catch (Exception e) {
-		
 			e.printStackTrace();
 		}
 	}

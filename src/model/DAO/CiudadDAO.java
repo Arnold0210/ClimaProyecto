@@ -51,7 +51,10 @@ public class CiudadDAO {
 		em.close();
 		return ciudad;
 	}
-
+	public Ciudad selectbyname(String nombre) {
+		Ciudad ciudad = em.find(Ciudad.class, nombre);
+		return ciudad;
+	}
 	public List<Ciudad> selectall() {
 		List<Ciudad> ciudades = em.createQuery("SELECT c FROM Ciudad c ORDER BY c.nombre",Ciudad.class).getResultList();
 		em.close();

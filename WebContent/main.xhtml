@@ -2,10 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:b="https://bootsfaces.net/ui" xmlns:p="https://primefaces.org/ui"
-	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
+	xmlns:h="http://java.sun.com/jsf/html">
 <ui:composition>
 	<header class="header"> <nav
 		class="navbar navbar-expand-lg navbar-light bg-primary"> <a
@@ -24,14 +21,11 @@
 			<li class="nav-item"><a class="nav-link" href="#">Buscar por
 					conjunto de ciudades</a></li>
 			<span style="width: 470px"></span>
-			<li class="nav-item"><h:form class="form-inline">
-					<h:selectOneMenu id = "ciudadlista" styleClass="custom-select custom-select-sm" value="#{ciudadBean.ciudadd}"  required="true" onselect="">
-						<f:selectItem noSelectionOption="true" itemValue="0" itemLabel="-- Seleccione una ciudad --" />
-						<f:selectItems value="#{ciudadBean.listaciudades}" />
-					</h:selectOneMenu>
-				</h:form></li>
+			<li class="nav-item"><a class="nav-link" href="#">Buscar por ciudad Individual</a></li>
 		</ul>
 	</div>
 	</nav> </header>
+	<h:dataTable>
+	</h:dataTable>
 </ui:composition>
 </html>

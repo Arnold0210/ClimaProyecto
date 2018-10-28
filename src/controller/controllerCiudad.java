@@ -19,7 +19,7 @@ public class controllerCiudad {
 			ciudad.setEstado(estado);
 			DAOcity.create(ciudad);
 		} catch (Exception e) {
-	
+
 			e.printStackTrace();
 		}
 	}
@@ -35,7 +35,7 @@ public class controllerCiudad {
 		List<Ciudad> ciudades = DAOcity.selectall();
 		return ciudades;
 	}
-	
+
 	/*
 	 * private void updateCiudad(String nombre, boolean estado) { DAOcity = new
 	 * CiudadDAO(); Ciudad ciudad = new Ciudad(); try { DAOcity.update(id, nombre);
