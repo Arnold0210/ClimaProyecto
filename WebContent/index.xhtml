@@ -15,13 +15,16 @@
 			<h:form class="form-inline">
 				<h:selectOneMenu id="ciudadlista"
 					styleClass="custom-select custom-select-sm"
-					value="#{indexBean.ciudad.idciudad}" required="true">
+					value="#{indexBean.ciudad.idciudad}" required="true"
+					style="width: 250px">
 					<f:selectItem noSelectionOption="true" itemValue="0"
 						itemLabel="-- Seleccione una ciudad --" itemDisabled="false" />
 					<f:selectItems value="#{indexBean.listaciudades}" />
 				</h:selectOneMenu>
 				<h:message for="ciudadlista" style="color:red;" />
 				<h:commandButton action="#{indexBean.submit()}" value="Enviar" />
+				<h:dataTable >
+				</h:dataTable>
 			</h:form>
 		</div>
 	</ui:define>

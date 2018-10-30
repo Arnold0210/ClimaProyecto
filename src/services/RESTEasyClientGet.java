@@ -48,6 +48,7 @@ public class RESTEasyClientGet {
 					Double humidity = Double.parseDouble(obj1.get("humidity").toString());
 					weather.add(humidity);
 					weather.add(temp);
+					System.out.println("Humedad: "+weather.get(0)+",Temperatura: "+weather.get(1));
 					return weather;
 				} catch (ParseException e) {
 					System.out.println("Can't get data");

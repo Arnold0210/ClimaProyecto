@@ -10,7 +10,13 @@
                         
         
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <dependent-module archiveName="json-simple-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Configuraciones eclipse archivos/json-simple-1.1.jar/json-simple-1.1.jar">
+        <dependent-module archiveName="json-simple-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/json-simple-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsf-api-2.2.8-30.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jsf-api-2.2.8-30.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jsf-impl-2.2.8-30.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jsf-impl-2.2.8-30.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
                                 

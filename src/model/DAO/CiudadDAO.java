@@ -2,12 +2,10 @@ package model.DAO;
 
 import java.util.List;
 
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
 
 import model.DTO.Ciudad;
 
@@ -29,34 +27,39 @@ public class CiudadDAO {
 			em.close();
 			return true;
 		} catch (Exception e) {
-			
+
 			System.err.println("Excepcion \n" + e);
 			em.getTransaction().rollback();
 			em.close();
 			return false;
 		}
 	}
+
 	public int searchId() {
 		int maximo = 0;
-		TypedQuery<Ciudad> query = em.createQuery("select t from Ciudad t",Ciudad.class);
+		TypedQuery<Ciudad> query = em.createQuery("select t from Ciudad t", Ciudad.class);
 		List<Ciudad> ciudad = query.getResultList();
-		for(Ciudad c:ciudad) {
+		for (Ciudad c : ciudad) {
 			maximo = c.getIdciudad();
 		}
 		maximo++;
 		return maximo;
 	}
+
 	public Ciudad select(int id) {
 		Ciudad ciudad = em.find(Ciudad.class, id);
 		em.close();
 		return ciudad;
 	}
+
 	public Ciudad selectbyname(String nombre) {
 		Ciudad ciudad = em.find(Ciudad.class, nombre);
 		return ciudad;
 	}
+
 	public List<Ciudad> selectall() {
-		List<Ciudad> ciudades = em.createQuery("SELECT c FROM Ciudad c ORDER BY c.nombre",Ciudad.class).getResultList();
+		List<Ciudad> ciudades = em.createQuery("SELECT c FROM Ciudad c ORDER BY c.nombre", Ciudad.class)
+				.getResultList();
 		em.close();
 		return ciudades;
 	}
@@ -66,6 +69,7 @@ public class CiudadDAO {
 			em.getTransaction().begin();
 			Ciudad city = em.find(Ciudad.class, id);
 			city.setEstado(estado);
+			em.merge(city);
 			em.getTransaction().commit();
 			em.close();
 			return true;
@@ -86,7 +90,7 @@ public class CiudadDAO {
 			em.close();
 			return true;
 		} catch (Exception e) {
-		
+
 			System.err.println(e);
 			em.getTransaction().rollback();
 			em.close();
@@ -95,4 +99,3 @@ public class CiudadDAO {
 	}
 
 }
-

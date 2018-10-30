@@ -11,7 +11,10 @@ import java.util.Date;
  * 
  */
 @Entity
-@NamedQuery(name="Clima.findAll", query="SELECT c FROM Clima c")
+@NamedQueries({
+	@NamedQuery(name="Clima.findAll", query="SELECT c FROM Clima c"),
+	@NamedQuery(name="Clima.selectweatherbycity",query="SELECT w from Clima w WHERE w.ciudad.idciudad = :idciudad")})
+
 public class Clima implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -22,49 +22,65 @@ public class ClimaDAO {
 
 	public Boolean create(Clima clima) {
 		try {
-			if(clima.getHumedad()!=0 && clima.getTemperatura()!=0) {
+			if (clima.getHumedad() != 0 && clima.getTemperatura() != 0) {
 				em.getTransaction().begin();
 				em.persist(clima);
 				em.getTransaction().commit();
 				em.close();
 				return true;
-			}else {
-				System.err.println("No existen valores de temperatura \n");
+			} else {
+				System.err.println("No existen valores de temperatura ni de humedad\n");
 				em.getTransaction().rollback();
 				em.close();
 				return false;
 			}
-			
 		} catch (Exception e) {
-			// 
-			System.err.println("Excepcion \n" + e);
+			System.err.print("Excepcion: " + e + "\n");
 			em.getTransaction().rollback();
 			em.close();
 			return false;
 		}
 	}
-	
-	
+
 	public Clima select(int id) {
 		Clima clima = em.find(Clima.class, id);
-		em.close();
 		return clima;
 	}
+
 	public int searchId() {
 		int maximo = 0;
-		TypedQuery<Clima> query = em.createQuery("select t from Clima t",Clima.class);
+		TypedQuery<Clima> query = em.createQuery("select t from Clima t", Clima.class);
 		List<Clima> clima = query.getResultList();
-		for(Clima c:clima) {
+		for (Clima c : clima) {
 			maximo = c.getIdclima();
 		}
 		maximo++;
 		return maximo;
 	}
+
 	public List<Clima> selectall() {
 		@SuppressWarnings("unchecked")
 		List<Clima> climas = em.createQuery("from Clima a").getResultList();
-		em.close();
 		return climas;
+	}
+
+	public List<Clima> selectallbycity(int id) {
+		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycity", Clima.class);
+		query.setParameter("idciudad", id);
+		List<Clima> clima = query.getResultList();
+		return clima;
+	}
+
+	public Clima selectlastwheaterbycity(int id) {
+		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycity", Clima.class);
+		query.setParameter("idciudad", id);
+		List<Clima> clima = query.getResultList();
+		int maximo = 0;
+		for (Clima c : clima) {
+			maximo = c.getIdclima();
+		}
+		Clima lastweather = select(maximo);
+		return lastweather;
 	}
 
 	public boolean status(int id, boolean estado) {
@@ -76,7 +92,7 @@ public class ClimaDAO {
 			em.close();
 			return true;
 		} catch (Exception e) {
-			
+
 			System.err.println(e);
 			em.getTransaction().rollback();
 			em.close();
@@ -93,7 +109,7 @@ public class ClimaDAO {
 			em.close();
 			return true;
 		} catch (Exception e) {
-			// 
+			//
 			System.err.println(e);
 			em.getTransaction().rollback();
 			em.close();

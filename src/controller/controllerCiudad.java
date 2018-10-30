@@ -10,13 +10,13 @@ public class controllerCiudad {
 	CiudadDAO DAOcity;
 	public static final boolean DEFAULT_STATUS = true;
 
-	public void createCiudad(String nombre, boolean estado) {
+	public void createCiudad(String nombre) {
 		DAOcity = new CiudadDAO();
 		Ciudad ciudad = new Ciudad();
 		try {
 			ciudad.setIdciudad(DAOcity.searchId());
 			ciudad.setNombre(nombre.toUpperCase());
-			ciudad.setEstado(estado);
+			ciudad.setEstado(DEFAULT_STATUS);
 			DAOcity.create(ciudad);
 		} catch (Exception e) {
 
