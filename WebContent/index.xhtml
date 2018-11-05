@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
@@ -7,23 +8,34 @@
 	<ui:define name="title">
 		<h:outputText value="Inicio" />
 	</ui:define>
-	<ui:define name="current">
+	<ui:define name="currentinicio">
 		<span class="sr-only">(current)</span>
 	</ui:define>
 	<ui:define name="content">
 		<div class="form-group">
 			<h:form class="form-inline">
-				<h:selectOneMenu id="ciudadlista"
-					styleClass="custom-select custom-select-sm"
-					value="#{indexBean.ciudad.idciudad}" required="true"
-					style="width: 250px">
-					<f:selectItem noSelectionOption="true" itemValue="0"
-						itemLabel="-- Seleccione una ciudad --" itemDisabled="false" />
-					<f:selectItems value="#{indexBean.listaciudades}" />
-				</h:selectOneMenu>
-				<h:message for="ciudadlista" style="color:red;" />
-				<h:commandButton action="#{indexBean.submit()}" value="Enviar" />
-				<h:dataTable >
+				<h:dataTable
+					value="#{indexBean.clima}"
+					var="clima"
+					styleClass="table table-light table-striped"
+					headerClass="thead-light"
+					style="width:auto">
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+						#{clima.ciudad.nombre} 
+					</h:column>
+					<h:column>
+						<f:facet name="header">Temperatura °C</f:facet>
+						#{clima.temperatura}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Temperatura °F</f:facet>
+						#{indexBean.toFahrenheit(clima.temperatura)}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Humedad %</f:facet>
+						#{clima.humedad}
+					</h:column>
 				</h:dataTable>
 			</h:form>
 		</div>

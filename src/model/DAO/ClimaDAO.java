@@ -1,5 +1,6 @@
 package model.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -59,13 +60,18 @@ public class ClimaDAO {
 	}
 
 	public List<Clima> selectall() {
-		@SuppressWarnings("unchecked")
-		List<Clima> climas = em.createQuery("from Clima a").getResultList();
+		TypedQuery<Ciudad> query = em.createQuery("SELECT c from Ciudad c",Ciudad.class);
+		List<Ciudad> allcities = query.getResultList();
+		List<Clima> climas = new ArrayList<Clima>();
+		for (Ciudad c : allcities) {
+			climas.add(selectlastwheaterbycity(c.getIdciudad()));
+		}
+
 		return climas;
 	}
 
 	public List<Clima> selectallbycity(int id) {
-		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycity", Clima.class);
+		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycityindex", Clima.class);
 		query.setParameter("idciudad", id);
 		List<Clima> clima = query.getResultList();
 		return clima;
@@ -116,6 +122,7 @@ public class ClimaDAO {
 			return false;
 		}
 	}
+
 	public double maxAllTemp(int id) {
 		TypedQuery<Double> query = em.createNamedQuery("Clima.selectMaxAllTemp", Double.class);
 		query.setParameter("idciudad", id);

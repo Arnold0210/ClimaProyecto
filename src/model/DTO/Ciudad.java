@@ -4,26 +4,25 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Set;
 
-
 /**
  * The persistent class for the ciudad database table.
  * 
  */
 @Entity
-@NamedQuery(name="Ciudad.findAll", query="SELECT c FROM Ciudad c")
+@NamedQuery(name = "Ciudad.findAll", query = "SELECT c FROM Ciudad c")
 public class Ciudad implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer idciudad;
 
 	private Boolean estado;
 
 	private String nombre;
 
-	//bi-directional many-to-one association to Clima
-	@OneToMany(mappedBy="ciudad")
+	// bi-directional many-to-one association to Clima
+	@OneToMany(mappedBy = "ciudad")
 	private Set<Clima> climas;
 
 	public Ciudad() {
@@ -46,7 +45,7 @@ public class Ciudad implements Serializable {
 	}
 
 	public String getNombre() {
-		return this.nombre;
+		return this.nombre.toUpperCase();
 	}
 
 	public void setNombre(String nombre) {
@@ -74,5 +73,4 @@ public class Ciudad implements Serializable {
 
 		return clima;
 	}
-
 }

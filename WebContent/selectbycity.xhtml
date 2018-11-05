@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/template_base.xhtml">
+	<ui:define name="title">
+		<h:outputText value="Consulta por ciudad" />
+	</ui:define>
+	<ui:define name="currentiniciounaciudad">
+		<span class="sr-only">(current)</span>
+	</ui:define>
+	<ui:define name="content">
+		<div class="form-group">
+			<h:form class="form-inline">
+				<h:selectOneMenu
+					id="ciudadlista"
+					styleClass="custom-select custom-select-sm"
+					value="#{selectbycityBean.ciudad.idciudad}"
+					required="true">
+					<f:selectItem
+						noSelectionOption="true"
+						itemValue="0"
+						itemLabel="-- Seleccione una ciudad --"/>
+					<f:selectItems value="#{selectbycityBean.listaciudades}" />
+				</h:selectOneMenu>
+				<h:commandButton
+					action="#{selectbycityBean.submit()}"
+					value="Enviar" />
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

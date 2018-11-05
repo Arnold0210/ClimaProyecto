@@ -30,10 +30,8 @@ public class controllerService {
 		Ciudad city = new Ciudad();
 		city = controllerCiudad.selectCiudad(id);
 		nombre = city.getNombre();
-		System.out.println(id + "," + nombre);
 		weather = restApi.Temp(nombre);
 		controllerClima.createClima(true, weather.get(0), weather.get(1), city);
 		return weather;
 	}
-
 }

@@ -2,14 +2,17 @@ package view;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import javax.faces.model.SelectItem;
 
 import controller.controllerCiudad;
 import controller.controllerClima;
-import controller.controllerService;
 import model.DTO.Ciudad;
+import model.DTO.Clima;
 
 @ManagedBean
 @ApplicationScoped
@@ -17,15 +20,14 @@ public class indexBean {
 
 	private List<SelectItem> listaciudades;
 	private Ciudad ciudad;
-	private controllerService controllerService;
+
 	private controllerCiudad controllerCiudad;
+	private List<Clima> clima;
 	private controllerClima controllerClima;
 
 	public indexBean() {
 		ciudad = new Ciudad();
-		controllerService = new controllerService();
 		controllerClima = new controllerClima();
-
 	}
 
 	public Ciudad getCiudad() {
@@ -38,9 +40,7 @@ public class indexBean {
 
 	public List<SelectItem> getListaciudades() {
 		this.listaciudades = new ArrayList<SelectItem>();
-		// CiudadDAO cDAo = new CiudadDAO();
 		controllerCiudad = new controllerCiudad();
-		// List<Ciudad> c = cDAo.selectall();
 		List<Ciudad> c = controllerCiudad.selectAllCities();
 		listaciudades.clear();
 		for (Ciudad ciudades : c) {
@@ -54,15 +54,23 @@ public class indexBean {
 		this.listaciudades = listaciudades;
 	}
 
-	public void submit() {
-		int id;
-		id = this.getCiudad().getIdciudad();
-		if (id == 1) {
-			controllerClima.selectWeather(id);
-//			weather = controllerService.insertWeatherBogota(id);
-//			weather = controllerService.insertWeatherOtherCities(id);
-		} else {
-			controllerService.insertWeatherOtherCities(id);
-		}
+	public List<Clima> getClima() {
+		this.clima = new ArrayList<Clima>();
+		controllerClima = new controllerClima();
+		clima = controllerClima.selectAllWeathers();
+		Collections.sort(clima, new Comparator<Clima>() {
+			@Override
+			public int compare(Clima c1, Clima c2) {
+				return c1.getCiudad().getNombre().compareTo(c2.getCiudad().getNombre());
+			}
+		});
+		return clima;
+	}
+
+	public float toFahrenheit(double temp) {
+		float fahrenheit;
+		fahrenheit = (float) (temp * 1.8);
+		fahrenheit = fahrenheit + 32;
+		return (float) (Math.round(fahrenheit * 100) / 100.0);
 	}
 }
