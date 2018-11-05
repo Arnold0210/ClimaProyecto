@@ -44,6 +44,7 @@ public class ClimaDAO {
 	}
 
 	public Clima select(int id) {
+
 		Clima clima = em.find(Clima.class, id);
 		return clima;
 	}
@@ -60,7 +61,7 @@ public class ClimaDAO {
 	}
 
 	public List<Clima> selectall() {
-		TypedQuery<Ciudad> query = em.createQuery("SELECT c from Ciudad c",Ciudad.class);
+		TypedQuery<Ciudad> query = em.createQuery("SELECT c from Ciudad c", Ciudad.class);
 		List<Ciudad> allcities = query.getResultList();
 		List<Clima> climas = new ArrayList<Clima>();
 		for (Ciudad c : allcities) {
@@ -78,6 +79,7 @@ public class ClimaDAO {
 	}
 
 	public Clima selectlastwheaterbycity(int id) {
+
 		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycity", Clima.class);
 		query.setParameter("idciudad", id);
 		List<Clima> clima = query.getResultList();

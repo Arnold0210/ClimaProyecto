@@ -13,22 +13,61 @@
 		<span class="sr-only">(current)</span>
 	</ui:define>
 	<ui:define name="content">
-		<div class="form-group">
+		<div
+			class="form-group"
+			style="margin-top: 20px;">
+			<h:outputLabel
+				value="Seleccione la ciudad de la cuál desea tener información:" />
 			<h:form class="form-inline">
 				<h:selectOneMenu
+					required="true"
 					id="ciudadlista"
 					styleClass="custom-select custom-select-sm"
 					value="#{selectbycityBean.ciudad.idciudad}"
-					required="true">
+					style="width:250px;">
 					<f:selectItem
 						noSelectionOption="true"
 						itemValue="0"
-						itemLabel="-- Seleccione una ciudad --"/>
+						itemLabel="-- Seleccione una ciudad --" />
 					<f:selectItems value="#{selectbycityBean.listaciudades}" />
 				</h:selectOneMenu>
+				<span style=""></span>
 				<h:commandButton
+					styleClass="btn btn-secondary"
 					action="#{selectbycityBean.submit()}"
 					value="Enviar" />
+			</h:form>
+			<div>
+				<span style="width: auto;"><h:message
+						for="ciudadlista"
+						style="color:red" /></span>
+			</div>
+		</div>
+		<div class="form-group">
+			<h:form class="form-inline">
+				<h:dataTable
+					value="#{selectbycityBean.clima}"
+					var="clima"
+					styleClass="table table-light table-striped"
+					headerClass="thead-light"
+					style="width:auto">
+					<h:column>
+						<f:facet name="header">Ciudad</f:facet>
+						#{clima.ciudad.nombre} 
+					</h:column>
+					<h:column>
+						<f:facet name="header">Temperatura °C</f:facet>
+						#{clima.temperatura}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Temperatura °F</f:facet>
+						#{indexBean.toFahrenheit(clima.temperatura)}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Humedad %</f:facet>
+						#{clima.humedad}
+					</h:column>
+				</h:dataTable>
 			</h:form>
 		</div>
 	</ui:define>

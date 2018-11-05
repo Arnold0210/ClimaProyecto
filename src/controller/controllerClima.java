@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import model.DAO.ClimaDAO;
 import model.DTO.Ciudad;
 import model.DTO.Clima;
+import services.RESTEasyClientGet;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,7 +29,6 @@ public class controllerClima {
 			Time hora = new java.sql.Time(Calendar.getInstance().getTime().getTime());
 			clima.setHora(hora);
 			DAOClima.create(clima);
-			System.err.println("Succesfull save Clima!!!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,13 +46,24 @@ public class controllerClima {
 		return climas;
 	}
 
-	public void selectWeather(int id) {
+	public Clima selectWeather(int id) {
+
 		DAOClima = new ClimaDAO();
-		List<Double> weather;
-		weather = new ArrayList<Double>();
+		// List<Double> weather;
+		// weather = new ArrayList<Double>();
 		Clima clima = DAOClima.selectlastwheaterbycity(id);
-		weather.add(clima.getHumedad());
-		weather.add(clima.getTemperatura());
+		/*
+		 * weather.add(clima.getHumedad()); weather.add(clima.getTemperatura());
+		 */
+		return clima;
+	}
+
+	public void insertWeatherOnAllCities(List<Ciudad> cities) {
+		RESTEasyClientGet rest = new RESTEasyClientGet();
+		for (Ciudad c : cities) {
+			List<Double> weather = rest.Temp(c.getNombre());
+			createClima(true, weather.get(0), weather.get(1), c);
+		}
 	}
 
 	public List<Clima> selectAllWeathers(int id) {

@@ -1,16 +1,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:mj="http://mojarra.dev.java.net/mojarra_ext">
 <h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet"
+	<meta
+		http-equiv="Content-Type"
+		content="text/html; charset=UTF-8" />
+
+	<meta
+		name="viewport"
+		content="width=device-width, initial-scale=1" />
+	<!--===============================================================================================-->
+	<link
+		rel="icon"
+		type="image/png"
+		href="images2/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="vendor2/bootstrap/css/bootstrap.min.css" />
+	<!--===============================================================================================-->
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="fonts2/font-awesome-4.7.0/css/font-awesome.min.css" />
+	<!--===============================================================================================-->
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="vendor2/animate/animate.css" />
+	<!--===============================================================================================-->
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="vendor2/select2/select2.min.css" />
+	<!--===============================================================================================-->
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="css2/util.css" />
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="css2/main.css" />
+	<!--===============================================================================================-->
+	<link
+		rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 		crossorigin="anonymous" />
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	<script
+		src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
 		crossorigin="anonymous"></script>
 	<script
@@ -24,10 +68,19 @@
 	<link
 		href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
 		rel="stylesheet" />
-	<link href="/css/mystyle.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link
+		href="/css/mystyle.css"
+		rel="stylesheet"
+		type="text/css" />
+	<link
+		rel="stylesheet"
+		type="text/css"
+		href="css/index.css" />
 	<title>Arduino Temperatura :: <ui:insert name="title" /></title>
-	<link rel="icon" type="image/jpg" href="images/clima_pinterest.jpg" />
+	<link
+		rel="icon"
+		type="image/png"
+		href="images/clima_pinteres2t.png" />
 
 </h:head>
 <h:body id="body">
@@ -37,9 +90,90 @@
 	</div>
 	<div id="content">
 		<ui:insert name="content">
-			<span>Página en construcción.</span>
+			<div class="size1 bg0 where1-parent">
+				<!-- Coutdown -->
+				<div
+					class="flex-c-m bg-img1 size2 where1 overlay1 where2 respon2"
+					style="background-image: url('images/background-body.jpg');">
+					<!-- style="background-image: url('images/bg01.jpg');"> -->
+					<div class="wsize2 flex-w flex-c-m cd100 js-tilt">
+						<div class="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
+							<span class="l2-txt1 p-b-9 days">4</span> <span class="s2-txt4">Dias</span>
+						</div>
+
+						<div class="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
+							<span class="l2-txt1 p-b-9 hours">14</span> <span class="s2-txt4">Horas</span>
+						</div>
+
+						<div class="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
+							<span class="l2-txt1 p-b-9 minutes">00</span> <span
+								class="s2-txt4">Minutos</span>
+						</div>
+
+						<div class="flex-col-c-m size6 bor2 m-l-10 m-r-10 m-t-15">
+							<span class="l2-txt1 p-b-9 seconds">00</span> <span
+								class="s2-txt4">Segundos</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Form -->
+				<div 
+					class="size3 flex-col-sb flex-w p-l-75 p-r-75 p-t-45 p-b-45 respon1">
+					<div class="wrap-pic1" >
+						<img
+							src="images/clima_pinterest.png"
+							alt="LOGO" />
+					</div>
+
+					<div class="p-t-50 p-b-60" >
+						<p class="m1-txt1 p-b-36">
+							Nuestro sitio está en construcción <span class="m1-txt2">Vuelve
+								pronto</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<!--===============================================================================================-->
+			<script src="vendor2/jquery/jquery-3.2.1.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="vendor2/bootstrap/js/popper.js"></script>
+			<script src="vendor2/bootstrap/js/bootstrap.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="vendor2/select2/select2.min.js"></script>
+			<!--===============================================================================================-->
+			<script src="vendor2/countdowntime/moment.min.js"></script>
+			<script src="vendor2/countdowntime/moment-timezone.min.js"></script>
+			<script src="vendor2/countdowntime/moment-timezone-with-data.min.js"></script>
+			<script src="vendor2/countdowntime/countdowntime.js"></script>
+			<script>
+		$('.cd100').countdown100({
+			/*Set Endtime here*/
+			/*Endtime must be > current time*/
+			endtimeYear: 2018,
+			endtimeMonth: 11,
+			endtimeDate: 9,
+			endtimeHours: 12,
+			endtimeMinutes: 0,
+			endtimeSeconds: 0,
+			timeZone: "America/Bogota" 
+			// ex:  timeZone: "America/Bogota"
+			//go to " http://momentjs.com/timezone/ " to get timezone
+		});
+	</script>
+			<!--===============================================================================================-->
+			<script src="vendor2/tilt/tilt.jquery.min.js"></script>
+			<script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+			<!--===============================================================================================-->
+			<script src="js2/main.js"></script>
+			
 		</ui:insert>
 	</div>
+	
 	<div id="footer">
 		<ui:include src="/footer.xhtml" />
 	</div>

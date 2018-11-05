@@ -58,9 +58,7 @@ public class CiudadDAO {
 	}
 
 	public List<Ciudad> selectall() {
-		List<Ciudad> ciudades = em.createQuery("SELECT c FROM Ciudad c ORDER BY c.nombre", Ciudad.class)
-				.getResultList();
-		em.close();
+		List<Ciudad> ciudades = em.createQuery("SELECT c FROM Ciudad c ORDER BY c.nombre", Ciudad.class).getResultList();
 		return ciudades;
 	}
 

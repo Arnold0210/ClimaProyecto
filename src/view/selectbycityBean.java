@@ -12,11 +12,13 @@ import controller.controllerCiudad;
 import controller.controllerClima;
 import controller.controllerService;
 import model.DTO.Ciudad;
+import model.DTO.Clima;
 
 @ManagedBean
 @ApplicationScoped
 public class selectbycityBean {
 	private Ciudad ciudad;
+	private Clima clima;
 	private List<SelectItem> listaciudades;
 	private controllerService controllerService;
 	private controllerClima controllerClima;
@@ -48,6 +50,14 @@ public class selectbycityBean {
 		return listaciudades;
 	}
 
+	public Clima getClima() {
+		return clima;
+	}
+
+	public void setClima(Clima clima) {
+		this.clima = clima;
+	}
+
 	public controllerService getControllerService() {
 		return controllerService;
 	}
@@ -74,5 +84,7 @@ public class selectbycityBean {
 		} else {
 			controllerService.insertWeatherOtherCities(id);
 		}
+		controllerClima = new controllerClima();
+		setClima(controllerClima.selectWeather(this.ciudad.getIdciudad()));
 	}
 }

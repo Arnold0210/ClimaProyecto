@@ -28,6 +28,9 @@ public class indexBean {
 	public indexBean() {
 		ciudad = new Ciudad();
 		controllerClima = new controllerClima();
+		controllerCiudad = new controllerCiudad();
+		List<Ciudad> c = controllerCiudad.selectAllCities();
+		controllerClima.insertWeatherOnAllCities(c);
 	}
 
 	public Ciudad getCiudad() {
@@ -56,8 +59,10 @@ public class indexBean {
 
 	public List<Clima> getClima() {
 		this.clima = new ArrayList<Clima>();
+
 		controllerClima = new controllerClima();
 		clima = controllerClima.selectAllWeathers();
+
 		Collections.sort(clima, new Comparator<Clima>() {
 			@Override
 			public int compare(Clima c1, Clima c2) {
