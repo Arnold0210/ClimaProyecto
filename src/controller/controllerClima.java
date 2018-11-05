@@ -71,4 +71,13 @@ public class controllerClima {
 		List<Clima> climas = DAOClima.selectallbycity(id);
 		return climas;
 	}
+	public List<Double> selectMaxWeatherbycity(int id){
+		List<Double> maxweather = new ArrayList<Double>();
+		double maxtemp=DAOClima.maxAllTemp(id);
+		double maxhumi = DAOClima.maxAllHumi(id);
+		maxweather.add(maxtemp);
+		maxweather.add(maxhumi);
+		return maxweather;
+	}
 }
+//heroku war:deploy "C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/ClimaProyecto.war" --app climaproject

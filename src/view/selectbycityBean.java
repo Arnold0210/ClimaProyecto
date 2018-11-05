@@ -23,6 +23,8 @@ public class selectbycityBean {
 	private controllerService controllerService;
 	private controllerClima controllerClima;
 	private controllerCiudad controllerCiudad;
+	private List<Double> maxWeatherCity;
+	private double coefPearson;
 
 	public selectbycityBean() {
 		ciudad = new Ciudad();
@@ -74,6 +76,22 @@ public class selectbycityBean {
 		this.controllerClima = controllerClima;
 	}
 
+	public List<Double> getMaxweathercity() {
+		return maxWeatherCity;
+	}
+
+	public void setMaxweathercity(List<Double> maxweathercity) {
+		this.maxWeatherCity = maxweathercity;
+	}
+
+	public double getCoefPearson() {
+		return coefPearson;
+	}
+
+	public void setCoefPearson(double coefPearson) {
+		this.coefPearson = coefPearson;
+	}
+
 	public void submit() {
 		int id;
 		id = this.getCiudad().getIdciudad();
@@ -86,5 +104,6 @@ public class selectbycityBean {
 		}
 		controllerClima = new controllerClima();
 		setClima(controllerClima.selectWeather(this.ciudad.getIdciudad()));
+		setMaxweathercity(controllerClima.selectMaxWeatherbycity(this.ciudad.getIdciudad()));
 	}
 }
