@@ -11,9 +11,13 @@ import java.util.Date;
  * 
  */
 @Entity
-@NamedQueries({
-	@NamedQuery(name="Clima.findAll", query="SELECT c FROM Clima c"),
-	@NamedQuery(name="Clima.selectweatherbycity",query="SELECT w from Clima w WHERE w.ciudad.idciudad = :idciudad")})
+@NamedQueries({ @NamedQuery(name = "Clima.findAll", query = "SELECT c FROM Clima c"),
+	@NamedQuery(name = "Clima.selectweatherbycity", query = "SELECT c FROM Clima c WHERE c.ciudad.idciudad = :idciudad"),
+	@NamedQuery(name = "Clima.selectMaxAllTemp", query = "SELECT MAX(c.temperatura) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
+	@NamedQuery(name = "Clima.selectMinAllTemp", query = "SELECT MIN(c.temperatura) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
+	@NamedQuery(name = "Clima.selectMaxAllHumi", query = "SELECT MAX(c.humedad) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
+	@NamedQuery(name = "Clima.selectMinAllHumi", query = "SELECT MIN(c.humedad) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
+	@NamedQuery(name = "Clima.selectLastDayWeather", query = "SELECT c FROM Clima c WHERE c.ciudad.idciudad = :idciudad AND c.fecha <= current_date AND c.fecha >=:fecha") })
 
 public class Clima implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -116,4 +116,31 @@ public class ClimaDAO {
 			return false;
 		}
 	}
+	public double maxAllTemp(int id) {
+		TypedQuery<Double> query = em.createNamedQuery("Clima.selectMaxAllTemp", Double.class);
+		query.setParameter("idciudad", id);
+		Double max = query.getSingleResult();
+		return max;
+	}
+
+	public double minAllTemp(int id) {
+		TypedQuery<Double> query = em.createNamedQuery("Clima.selectMaxAllTemp", Double.class);
+		query.setParameter("idciudad", id);
+		Double min = query.getSingleResult();
+		return min;
+	}
+
+	public double maxAllHumi(int id) {
+		TypedQuery<Double> query = em.createNamedQuery("Clima.selectMaxAllHumi", Double.class);
+		query.setParameter("idciudad", id);
+		Double max = query.getSingleResult();
+		return max;
+	}
+
+	public double minAllHumi(int id) {
+		TypedQuery<Double> query = em.createNamedQuery("Clima.selectMaxAllHumi", Double.class);
+		query.setParameter("idciudad", id);
+		Double min = query.getSingleResult();
+		return min;
+	}
 }
