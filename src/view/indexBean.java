@@ -20,7 +20,6 @@ public class indexBean {
 
 	private List<SelectItem> listaciudades;
 	private Ciudad ciudad;
-
 	private controllerCiudad controllerCiudad;
 	private List<Clima> clima;
 	private controllerClima controllerClima;

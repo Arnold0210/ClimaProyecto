@@ -96,8 +96,8 @@ public class selectbycityBean {
 		int id;
 		id = this.getCiudad().getIdciudad();
 		if (id == 1) {
-			controllerClima.selectWeather(id);
-//			weather = controllerService.insertWeatherBogota(id);
+			//controllerClima.selectWeather(id);
+			controllerService.insertWeatherBogota(id);
 //			weather = controllerService.insertWeatherOtherCities(id);
 		} else {
 			controllerService.insertWeatherOtherCities(id);

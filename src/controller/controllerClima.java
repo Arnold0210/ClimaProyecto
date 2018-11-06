@@ -49,12 +49,7 @@ public class controllerClima {
 	public Clima selectWeather(int id) {
 
 		DAOClima = new ClimaDAO();
-		// List<Double> weather;
-		// weather = new ArrayList<Double>();
 		Clima clima = DAOClima.selectlastwheaterbycity(id);
-		/*
-		 * weather.add(clima.getHumedad()); weather.add(clima.getTemperatura());
-		 */
 		return clima;
 	}
 
