@@ -10,8 +10,7 @@
 		class="navbar-brand"
 		href="index.xhtml"><img
 		src="images/clima_pinterest.png"
-		height="120px" /></a>
-	<button
+		height="120px" /></a> <button
 		class="navbar-toggler"
 		type="button"
 		data-toggle="collapse"
@@ -19,29 +18,27 @@
 		aria-controls="navbarNavDropdown"
 		aria-expanded="false"
 		aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div
+	<span class="navbar-toggler-icon"></span>
+	</button> <div
 		class="collapse navbar-collapse"
 		id="navbarNavDropdown">
-		<ui:insert name = "menu">
+	<ui:insert name="menu">
 		<ul class="navbar-nav">
-			<li class="nav-item active"><a
-				class="nav-link"
-				href="index.xhtml">Inicio <ui:insert name="currentinicio"></ui:insert>
-			</a></li>
-			<li class="nav-item"><a
-				class="nav-link"
-				href="selectbygroupofcities.xhtml">Buscar por conjunto de
-					ciudades<ui:insert name="currentconjuntociudades"></ui:insert>
-			</a></li>
-			<li class="nav-item"><a
-				class="nav-link"
-				href="selectbycity.xhtml">Buscar por ciudad Individual<ui:insert
-						name="currentiniciounaciudad"></ui:insert></a></li>
+		<li class="nav-item active"><a
+			class="nav-link"
+			href="index.xhtml">Inicio <ui:insert name="currentinicio"></ui:insert>
+		</a></li>
+		<li class="nav-item"><a
+			class="nav-link"
+			href="selectbygroupofcities.xhtml">Buscar por conjunto de
+		ciudades<ui:insert name="currentconjuntociudades"></ui:insert>
+		</a></li>
+		<li class="nav-item"><a
+			class="nav-link"
+			href="selectbycity.xhtml">Buscar por ciudad Individual<ui:insert
+			name="currentiniciounaciudad"></ui:insert></a></li>
 		</ul>
-		</ui:insert>
-	</div>
-	</nav> </header>
+	</ui:insert>
+	</div> </nav> </header>
 </ui:composition>
 </html>

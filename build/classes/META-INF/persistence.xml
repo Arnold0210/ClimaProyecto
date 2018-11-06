@@ -3,14 +3,19 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="clima" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="clima"
+		transaction-type="RESOURCE_LOCAL">
 		<class>model.DTO.Ciudad</class>
 		<class>model.DTO.Clima</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-50-16-196-138.compute-1.amazonaws.com:5432/dda1iurb1hi1vh?sslmode=require&amp;user=tssvygukfgsmfs&amp;password=dda7a0bd32bdfeb2c61ccef1b80bf25160e18fd0e64af4869d02498082cd02a9"/>
-			<property name="javax.persistence.jdbc.user" value="tssvygukfgsmfs"/>
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-			<property name="javax.persistence.jdbc.password" value="dda7a0bd32bdfeb2c61ccef1b80bf25160e18fd0e64af4869d02498082cd02a9"/>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:postgresql://ec2-50-16-196-138.compute-1.amazonaws.com:5432/dda1iurb1hi1vh?sslmode=require&amp;user=tssvygukfgsmfs&amp;password=dda7a0bd32bdfeb2c61ccef1b80bf25160e18fd0e64af4869d02498082cd02a9" />
+			<property name="javax.persistence.jdbc.user"
+				value="tssvygukfgsmfs" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.postgresql.Driver" />
+			<property name="javax.persistence.jdbc.password"
+				value="dda7a0bd32bdfeb2c61ccef1b80bf25160e18fd0e64af4869d02498082cd02a9" />
 		</properties>
 	</persistence-unit>
 </persistence>

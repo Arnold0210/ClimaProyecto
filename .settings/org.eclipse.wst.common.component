@@ -1,36 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-                
-    
-    
-    <wb-module deploy-name="ClimaProyecto">
-                                
-        
-        
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-                        
-        
-        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <dependent-module archiveName="json-simple-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/json-simple-1.1.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="jsf-api-2.2.8-30.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jsf-api-2.2.8-30.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="jsf-impl-2.2.8-30.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jsf-impl-2.2.8-30.jar">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-                                
-        
-        
-        <property name="context-root" value="ClimaProyecto"/>
-                        
-        
-        <property name="java-output-path" value="/ClimaProyecto/build/classes"/>
-                            
-    
-    
-    </wb-module>
-            
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId"
+	project-version="1.5.0">
+
+
+
+	<wb-module deploy-name="ClimaProyecto">
+
+
+
+		<wb-resource deploy-path="/WEB-INF/classes"
+			source-path="/src" />
+
+
+		<wb-resource deploy-path="/" source-path="/WebContent"
+			tag="defaultRootSource" />
+		<dependent-module archiveName="json-simple-1.1.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/json-simple-1.1.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="jsf-api-2.2.8-30.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jsf-api-2.2.8-30.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+		<dependent-module archiveName="jsf-impl-2.2.8-30.jar"
+			deploy-path="/WEB-INF/lib"
+			handle="module:/classpath/lib/C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jsf-impl-2.2.8-30.jar">
+			<dependency-type>uses</dependency-type>
+		</dependent-module>
+
+
+
+		<property name="context-root" value="ClimaProyecto" />
+
+
+		<property name="java-output-path"
+			value="/ClimaProyecto/build/classes" />
+
+
+
+	</wb-module>
+
 
 
 </project-modules>
