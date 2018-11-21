@@ -9,13 +9,13 @@
 		<class>model.DTO.Clima</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:postgresql://ec2-50-16-196-138.compute-1.amazonaws.com:5432/dda1iurb1hi1vh?sslmode=require&amp;user=tssvygukfgsmfs&amp;password=dda7a0bd32bdfeb2c61ccef1b80bf25160e18fd0e64af4869d02498082cd02a9" />
+				value="jdbc:postgresql://localhost:5432/Prueba" />
 			<property name="javax.persistence.jdbc.user"
-				value="tssvygukfgsmfs" />
+				value="postgres" />
 			<property name="javax.persistence.jdbc.driver"
 				value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.password"
-				value="dda7a0bd32bdfeb2c61ccef1b80bf25160e18fd0e64af4869d02498082cd02a9" />
+				value="root" />
 		</properties>
 	</persistence-unit>
 </persistence>

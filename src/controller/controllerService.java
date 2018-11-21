@@ -17,7 +17,6 @@ public class controllerService {
 		ciudadBogota = controllerClima.selectClima(id);
 		weather.add(ciudadBogota.getTemperatura());
 		weather.add(ciudadBogota.getHumedad());
-		System.out.println(weather);
 		return weather;
 	}
 

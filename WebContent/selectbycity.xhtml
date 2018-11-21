@@ -3,7 +3,9 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
 
 <ui:composition template="/template_base.xhtml">
 	<ui:define name="title">
@@ -13,85 +15,87 @@
 		<span class="sr-only">(current)</span>
 	</ui:define>
 	<ui:define name="content">
-
 		<div
+			id="form-select-city"
 			class="form-group"
 			style="margin-top: 20px; margin-left: 30px">
-		<h:outputLabel
-			value="Seleccione la ciudad de la cuál desea tener información:" />
-		<h:form class="form-inline">
-			<h:selectOneMenu
-				required="true"
-				id="ciudadlista"
-				styleClass="custom-select custom-select"
-				value="#{selectbycityBean.ciudad.idciudad}"
-				style="width:250px;">
-				<!--  styleClass = "custom-select custom-select-lg mb-3" -->
-				<f:selectItem
-					noSelectionOption="true"
-					itemValue="0"
-					itemLabel="-- Seleccione una ciudad --" />
-				<f:selectItems value="#{selectbycityBean.listaciudades}" />
-			</h:selectOneMenu>
-			<span style="width: 20px"></span>
-			<h:commandButton
-				styleClass="btn btn-success"
-				style="width:120px"
-				action="#{selectbycityBean.submit()}"
-				value="Enviar" />
-		</h:form>
-		<div>
-		<span style="width: auto;"><h:message
-			for="ciudadlista"
-			style="color:red" /></span>
-		</div>
+			<h:outputLabel
+				value="Seleccione la ciudad de la cuál desea tener información:" />
+			<h:form class="form-inline">
+				<h:selectOneMenu
+					required="true"
+					id="ciudadlista"
+					styleClass="custom-select custom-select"
+					value="#{selectbycityBean.ciudad.idciudad}"
+					style="width:250px;">
+					<!--  styleClass = "custom-select custom-select-lg mb-3" -->
+					<f:selectItem
+						noSelectionOption="true"
+						itemValue="0"
+						itemLabel="-- Seleccione una ciudad --" />
+					<f:selectItems value="#{selectbycityBean.listaciudades}" />
+				</h:selectOneMenu>
+				<span style="width: 20px"></span>
+				<h:commandButton
+					styleClass="btn btn-success"
+					style="width:120px"
+					action="#{selectbycityBean.submit()}"
+					value="Enviar" />
+			</h:form>
+			<div id="error-message">
+				<span style="width: auto;"><h:message
+						for="ciudadlista"
+						style="color:red" /></span>
+			</div>
 		</div>
 		<div class="row">
-		<div class="col-md-auto">
-		<div class="form-group">
-		<h:form class="form-inline">
-			<div class="table-responsive-sm">
-			<h:dataTable
-				value="#{selectbycityBean.clima}"
-				var="clima"
-				styleClass="table table-bordered table-hover table-sm table-light table-striped"
-				headerClass="thead-light bg-dark text-white"
-				style="width:auto">
-				<h:column>
-					<f:facet name="header">Ciudad</f:facet>
+			<div class="col-md-auto">
+				<div class="form-group">
+					<h:form class="form-inline">
+						<div class="table-responsive-sm">
+							<h:dataTable
+								value="#{selectbycityBean.clima}"
+								var="clima"
+								styleClass="table table-bordered table-hover table-sm table-light table-striped"
+								headerClass="thead-light bg-dark text-white"
+								style="width:auto">
+								<h:column>
+									<f:facet name="header">Ciudad</f:facet>
 						#{clima.ciudad.nombre} 
 					</h:column>
-				<h:column>
-					<f:facet name="header">Temperatura °C</f:facet>
+								<h:column>
+									<f:facet name="header">Temperatura °C</f:facet>
 						#{clima.temperatura}
 					</h:column>
-				<h:column>
-					<f:facet name="header">Temperatura °F</f:facet>
+								<h:column>
+									<f:facet name="header">Temperatura °F</f:facet>
 						#{indexBean.toFahrenheit(clima.temperatura)}
 					</h:column>
-				<h:column>
-					<f:facet name="header">Humedad %</f:facet>
+								<h:column>
+									<f:facet name="header">Humedad %</f:facet>
 						#{clima.humedad}
 					</h:column>
-			</h:dataTable>
+							</h:dataTable>
+						</div>
+					</h:form>
+				</div>
 			</div>
-		</h:form>
+			<div class="col-md-auto">
+				<div>
+					Máxima Temperatura Registrada:
+					<h:outputText value="#{selectbycityBean.maxweathercity.get(0)} °C" />
+				</div>
+				<div>
+					Máxima Humedad Registrada:
+					<h:outputText value="#{selectbycityBean.maxweathercity.get(1)} %" />
+				</div>
+			</div>
 		</div>
-		</div>
-		<div class="col-md-auto">
-		<div>
-		Máxima Temperatura Registrada:
-		<h:outputText value="#{selectbycityBean.maxweathercity.get(0)} °C" />
-		</div>
-		<div>
-		Máxima Humedad Registrada:
-		<h:outputText value="#{selectbycityBean.maxweathercity.get(1)} %" />
-		</div>
-		</div>
-		<div class="row">
-		<div class="col-md-auto"></div>
-		</div>
-		</div>
+
+		<div
+			id="statistics"
+			class="row"></div>
+
 	</ui:define>
 </ui:composition>
 </html>

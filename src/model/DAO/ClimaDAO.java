@@ -1,8 +1,8 @@
 package model.DAO;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -151,5 +151,32 @@ public class ClimaDAO {
 		query.setParameter("idciudad", id);
 		Double min = query.getSingleResult();
 		return min;
+	}
+
+	public List<Double> avgTem(int id) {
+		TypedQuery<Double> query = em.createNamedQuery("Clima.selectavgTemp", Double.class);
+		query.setParameter("idciudad", id);
+		List<Double> temp = query.getResultList();
+		return temp;
+	}
+
+	public List<Double> avgHum(int id) {
+		TypedQuery<Double> query = em.createNamedQuery("Clima.selectavgHumi", Double.class);
+		query.setParameter("idciudad", id);
+		List<Double> hum = query.getResultList();
+		return hum;
+	}
+
+	public List<Date> date(int id) {
+		TypedQuery<Date> query = em.createNamedQuery("Clima.selectdate", Date.class);
+		query.setParameter("idciudad", id);
+		List<Date> date = query.getResultList();
+		return date;
+	}
+	public List<Clima> getWeatherLastDay(int id){
+		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectdateWeather", Clima.class);
+		query.setParameter("idciudad", id);
+		List<Clima> clima = query.getResultList();
+		return clima;
 	}
 }

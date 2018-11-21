@@ -1,9 +1,10 @@
 package view;
 
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.model.SelectItem;
@@ -17,19 +18,32 @@ import model.DTO.Clima;
 @ManagedBean
 @ApplicationScoped
 public class selectbycityBean {
+
 	private Ciudad ciudad;
 	private Clima clima;
 	private List<SelectItem> listaciudades;
 	private controllerService controllerService;
 	private controllerClima controllerClima;
 	private controllerCiudad controllerCiudad;
-	private List<Double> maxWeatherCity;
+	private List<Double> maxWeatherCity, avgTemp, avgHume;
+	private List<Date> date;
 	private double coefPearson;
 
 	public selectbycityBean() {
 		ciudad = new Ciudad();
 		controllerClima = new controllerClima();
 		controllerService = new controllerService();
+		maxWeatherCity = new ArrayList<Double>();
+		setClima(controllerClima.selectWeather(1));
+		setMaxweathercity(controllerClima.selectMaxWeatherbycity(1));
+		setAvgHume(controllerClima.selectAvgHum(1));
+		setAvgTemp(controllerClima.selectAvgTemp(1));
+		setDate(controllerClima.selectDate(1));
+	}
+
+	@PostConstruct
+	public void initialize() {
+
 	}
 
 	public Ciudad getCiudad() {
@@ -84,6 +98,22 @@ public class selectbycityBean {
 		this.maxWeatherCity = maxweathercity;
 	}
 
+	public List<Double> getAvgTemp() {
+		return avgTemp;
+	}
+
+	public void setAvgTemp(List<Double> avgTemp) {
+		this.avgTemp = avgTemp;
+	}
+
+	public List<Double> getAvgHume() {
+		return avgHume;
+	}
+
+	public void setAvgHume(List<Double> avgHume) {
+		this.avgHume = avgHume;
+	}
+
 	public double getCoefPearson() {
 		return coefPearson;
 	}
@@ -92,18 +122,30 @@ public class selectbycityBean {
 		this.coefPearson = coefPearson;
 	}
 
+	public List<Date> getDate() {
+		return date;
+	}
+
+	public void setDate(List<Date> date) {
+		this.date = date;
+	}
+
 	public void submit() {
 		int id;
 		id = this.getCiudad().getIdciudad();
 		if (id == 1) {
-			//controllerClima.selectWeather(id);
-			controllerService.insertWeatherBogota(id);
-//			weather = controllerService.insertWeatherOtherCities(id);
+			controllerClima.selectWeather(id);
+			// controllerService.insertWeatherBogota(id);
+			controllerService.insertWeatherOtherCities(id);
 		} else {
 			controllerService.insertWeatherOtherCities(id);
 		}
 		controllerClima = new controllerClima();
 		setClima(controllerClima.selectWeather(this.ciudad.getIdciudad()));
 		setMaxweathercity(controllerClima.selectMaxWeatherbycity(this.ciudad.getIdciudad()));
+		setAvgHume(controllerClima.selectAvgHum(this.ciudad.getIdciudad()));
+		setAvgTemp(controllerClima.selectAvgTemp(this.ciudad.getIdciudad()));
+		setDate(controllerClima.selectDate(this.ciudad.getIdciudad()));
+		
 	}
 }

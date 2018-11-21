@@ -15,33 +15,33 @@
 		<div
 			class="form-group"
 			style="margin-top: 25px">
-		<h:form class="form-inline">
-			<div class="table-responsive-sm">
-			<h:dataTable
-				value="#{indexBean.clima}"
-				var="clima"
-				styleClass="table table-bordered table-hover table-sm table-light table-striped"
-				headerClass="thead-dark bg-dark text-white"
-				style="width:auto">
-				<h:column>
-					<f:facet name="header">Ciudad</f:facet>
+			<h:form class="form-inline">
+				<div class="table-responsive-sm">
+					<h:dataTable
+						value="#{indexBean.clima}"
+						var="clima"
+						styleClass="table table-bordered table-hover table-sm table-light table-striped"
+						headerClass="thead-dark bg-dark text-white"
+						style="width:auto">
+						<h:column>
+							<f:facet name="header">Ciudad</f:facet>
 						#{clima.ciudad.nombre} 
 					</h:column>
-				<h:column>
-					<f:facet name="header">Temperatura °C</f:facet>
+						<h:column>
+							<f:facet name="header">Temperatura °C</f:facet>
 						#{clima.temperatura}
 					</h:column>
-				<h:column>
-					<f:facet name="header">Temperatura °F</f:facet>
+						<h:column>
+							<f:facet name="header">Temperatura °F</f:facet>
 						#{indexBean.toFahrenheit(clima.temperatura)}
 					</h:column>
-				<h:column>
-					<f:facet name="header">Humedad %</f:facet>
+						<h:column>
+							<f:facet name="header">Humedad %</f:facet>
 						#{clima.humedad}
 					</h:column>
-			</h:dataTable>
-			</div>
-		</h:form>
+					</h:dataTable>
+				</div>
+			</h:form>
 		</div>
 	</ui:define>
 </ui:composition>

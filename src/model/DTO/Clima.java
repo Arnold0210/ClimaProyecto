@@ -18,7 +18,11 @@ import java.util.Date;
 	@NamedQuery(name = "Clima.selectMinAllTemp", query = "SELECT MIN(c.temperatura) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
 	@NamedQuery(name = "Clima.selectMaxAllHumi", query = "SELECT MAX(c.humedad) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
 	@NamedQuery(name = "Clima.selectMinAllHumi", query = "SELECT MIN(c.humedad) FROM Clima c WHERE c.ciudad.idciudad=:idciudad"),
-	@NamedQuery(name = "Clima.selectLastDayWeather", query = "SELECT c FROM Clima c WHERE c.ciudad.idciudad = :idciudad AND c.fecha <= current_date AND c.fecha >=:fecha") })
+	@NamedQuery(name = "Clima.selectLastDayWeather", query = "SELECT c FROM Clima c WHERE c.ciudad.idciudad = :idciudad AND c.fecha <= current_date AND c.fecha >=:fecha"),
+	@NamedQuery(name = "Clima.selectavgTemp",query = "SELECT AVG(c.temperatura) FROM Clima c where c.ciudad.idciudad =:idciudad group by c.fecha"),
+	@NamedQuery(name = "Clima.selectavgHumi",query = "SELECT AVG(c.humedad) FROM Clima c where c.ciudad.idciudad =:idciudad group by c.fecha"),
+	@NamedQuery(name = "Clima.selectdate",query = "SELECT c.fecha FROM Clima c where c.ciudad.idciudad =:idciudad group by c.fecha"),
+	@NamedQuery(name = "Clima.selectdateWeather", query = "select c from Clima c where  c.ciudad.idciudad = :idciudad and c.fecha = CURRENT_DATE")})
 
 public class Clima implements Serializable{
 	private static final long serialVersionUID = 1L;
