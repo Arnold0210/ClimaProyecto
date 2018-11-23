@@ -39,6 +39,7 @@ public class selectbycityBean {
 		setAvgHume(controllerClima.selectAvgHum(1));
 		setAvgTemp(controllerClima.selectAvgTemp(1));
 		setDate(controllerClima.selectDate(1));
+		setCoefPearson(controllerClima.coefPearson(1));
 	}
 
 	@PostConstruct
@@ -146,6 +147,6 @@ public class selectbycityBean {
 		setAvgHume(controllerClima.selectAvgHum(this.ciudad.getIdciudad()));
 		setAvgTemp(controllerClima.selectAvgTemp(this.ciudad.getIdciudad()));
 		setDate(controllerClima.selectDate(this.ciudad.getIdciudad()));
-		
+		setCoefPearson(controllerClima.coefPearson(this.ciudad.getIdciudad()));
 	}
 }

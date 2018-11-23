@@ -167,5 +167,23 @@ public class controllerClima {
 		}
 		return hour;
 	}
+
+	public double coefPearson(int id) {
+		List<Clima> weather = DAOClima.selectallbycity(id);
+		double sumX = 0, sumY = 0, sumXX = 0, sumYY = 0, sumXY = 0;
+		int n = 0;
+		for (Clima c : weather) {
+			sumX += c.getTemperatura();
+			sumY += c.getHumedad();
+			sumXX += c.getTemperatura() * c.getTemperatura();
+			sumYY += c.getHumedad() * c.getHumedad();
+			sumXY += c.getHumedad() * c.getTemperatura();
+			n++;
+		}
+		double sigmaX = Math.sqrt(sumXX/n-Math.pow(sumX/n, 2));
+		double sigmaY = Math.sqrt(sumYY/n-Math.pow(sumY/n, 2));
+		double sigmaXY= sumXY/n-sumX/n*sumY/n;
+		return sigmaXY/(sigmaX*sigmaY);
+	}
 }
 //heroku war:deploy "C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/ClimaProyecto.war" --app climaproject

@@ -15,7 +15,7 @@
 	<ui:define name="content">
 		<div
 			class="container"
-			style="margin-top: 20px; margin-left: 30px;">
+			style="margin-top: 20px; margin-left: 30px; height: auto; margin-bottom: 15px;">
 			<div
 				id="form-select-city"
 				class="form-group">
@@ -94,64 +94,54 @@
 						Máxima Humedad Registrada:
 						<h:outputText value="#{selectbycityBean.maxweathercity.get(1)} %" />
 					</div>
+					<div>
+						Coeficiente de Correlación de Pearson:
+						<h:outputText value="#{selectbycityBean.maxweathercity.get(1)}" />
+					</div>
 				</div>
 			</div>
-			<div>
-				<span id="day"> <script
-						type='text/javascript'
-						language='JavaScript'
-						src='http://127.0.0.1:65392/iportal/jsapi'></script> <script
-						type='text/javascript'>
+			<script
+				type='text/javascript'
+				language='JavaScript'
+				src='http://127.0.0.1:49809/iportal/jsapi'></script>
+			<script type='text/javascript'>
 					actuate.load('viewer');
-					var reqOps = new actuate.RequestOptions( );
+					var reqOps = new actuate.RequestOptions();
 					reqOps.setRepositoryType('Workgroup');
 					reqOps.setCustomParameters({});
-					actuate.initialize( 'http://127.0.0.1:65392/iportal/',reqOps==undefined?null:reqOps, null,null,myInit );
-					function myInit(){viewer1 = new actuate.Viewer( 'container1' );
-					viewer1.setReportDesign('C:/Users/TRABAJO/workspace/BIRT Project/Report Designs/TemperaturaReporte.rptdesign');
-						var parameterValueMap={idCiudad:document.getElementById('form:ciudadlista').value};
-						var parameterValues=[];
-						for(var key in parameterValueMap){
-							var param=new actuate.viewer.impl.ParameterValue();
+					actuate.initialize('http://127.0.0.1:49809/iportal/',
+							reqOps == undefined ? null : reqOps, null, null,
+							myInit);
+					function myInit() {
+						viewer1 = new actuate.Viewer('container1');
+						viewer1.setReportDesign('C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/Report Designs/Report.rptdesign');
+						var parameterValueMap = {
+							idCiudadHour : document.getElementById('form:ciudadlista').value,
+							idCiudadDate : document.getElementById('form:ciudadlista').value
+						};
+						var parameterValues = [];
+						for ( var key in parameterValueMap) {
+							var param = new actuate.viewer.impl.ParameterValue();
 							param.setName(key);
-							if(parameterValueMap[key]!=null){
+							if (parameterValueMap[key] != null) {
 								param.setValue(parameterValueMap[key]);
-								}else{
-									param.setValueIsNull(true);
-								}parameterValues.push(param);
-							}
+							} else {
+								param.setValueIsNull(true);
+							}	
+							parameterValues.push(param);
+						}
 						viewer1.setParameterValues(parameterValues);
-						var options = new actuate.viewer.UIOptions( );
-						viewer1.setUIOptions( options );viewer1.submit();
+						var options = new actuate.viewer.UIOptions();
+						viewer1.setUIOptions(options);
+						viewer1.submit();
 					}
 				</script>
-					<div
-						id='container1'
-						style='border-width: 0px; border-style: solid;'></div>
-				</span>
-			</div>
-			<span id="hour"> <script
-					type='text/javascript'
-					language='JavaScript'
-					src='http://127.0.0.1:60814/iportal/jsapi'></script> <script
-					type='text/javascript'>
-					actuate.load('viewer');
-					var reqOps = new actuate.RequestOptions( );
-					reqOps.setRepositoryType('Workgroup');
-					reqOps.setCustomParameters({});
-					actuate.initialize( 'http://127.0.0.1:60814/iportal/',reqOps==undefined?null:reqOps, null,null,myInit );
-					function myInit(){
-						viewer1 = new actuate.Viewer( 'container1' );
-						viewer1.setReportDesign('C:/Users/TRABAJO/workspace/BIRT Project/Report Designs/TempHumiHour.rptdesign');
-						var options = new actuate.viewer.UIOptions( );viewer1.setUIOptions( options );
-						viewer1.submit();
-						}
-					</script>
-				<div
-					id='container1'
-					style='border-width: 0px; border-style: solid;'></div>
-			</span>
+			<div
+				id='container1'
+				style='border-width: 0px; border-style: solid; width: auto;'></div>
+
 		</div>
 	</ui:define>
 </ui:composition>
 </html>
+
