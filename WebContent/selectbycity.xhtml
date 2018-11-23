@@ -5,8 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-
-
 <ui:composition template="/template_base.xhtml">
 	<ui:define name="title">
 		<h:outputText value="Consulta por ciudad" />
@@ -16,86 +14,144 @@
 	</ui:define>
 	<ui:define name="content">
 		<div
-			id="form-select-city"
-			class="form-group"
-			style="margin-top: 20px; margin-left: 30px">
-			<h:outputLabel
-				value="Seleccione la ciudad de la cuál desea tener información:" />
-			<h:form class="form-inline">
-				<h:selectOneMenu
-					required="true"
-					id="ciudadlista"
-					styleClass="custom-select custom-select"
-					value="#{selectbycityBean.ciudad.idciudad}"
-					style="width:250px;">
-					<!--  styleClass = "custom-select custom-select-lg mb-3" -->
-					<f:selectItem
-						noSelectionOption="true"
-						itemValue="0"
-						itemLabel="-- Seleccione una ciudad --" />
-					<f:selectItems value="#{selectbycityBean.listaciudades}" />
-				</h:selectOneMenu>
-				<span style="width: 20px"></span>
-				<h:commandButton
-					styleClass="btn btn-success"
-					style="width:120px"
-					action="#{selectbycityBean.submit()}"
-					value="Enviar" />
-			</h:form>
-			<div id="error-message">
-				<span style="width: auto;"><h:message
-						for="ciudadlista"
-						style="color:red" /></span>
+			class="container"
+			style="margin-top: 20px; margin-left: 30px;">
+			<div
+				id="form-select-city"
+				class="form-group">
+				<h:outputLabel
+					value="Seleccione la ciudad de la cuál desea tener información:" />
+				<h:form
+					id="form"
+					class="form-inline">
+					<h:selectOneMenu
+						required="true"
+						id="ciudadlista"
+						styleClass="custom-select custom-select"
+						value="#{selectbycityBean.ciudad.idciudad}"
+						style="width:250px;">
+						<!--  styleClass = "custom-select custom-select-lg mb-3" -->
+						<f:selectItem
+							noSelectionOption="true"
+							itemValue="0"
+							itemLabel="-- Seleccione una ciudad --" />
+						<f:selectItems value="#{selectbycityBean.listaciudades}" />
+					</h:selectOneMenu>
+					<span style="width: 20px"></span>
+					<h:commandButton
+						styleClass="btn btn-success"
+						style="width:120px"
+						action="#{selectbycityBean.submit()}"
+						value="Enviar" />
+				</h:form>
+				<div id="error-message">
+					<span style="width: auto;"><h:message
+							for="ciudadlista"
+							style="color:red" /></span>
+				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-auto">
+					<div class="form-group">
+						<h:form
+							class="form-inline"
+							id='form2'>
+							<div class="table-responsive-sm">
+								<h:dataTable
+									id="table2"
+									value="#{selectbycityBean.clima}"
+									var="clima"
+									styleClass="table table-bordered table-hover table-sm table-light table-striped"
+									headerClass="thead-light bg-dark text-white"
+									style="width:auto">
+									<h:column>
+										<f:facet name="header">Ciudad</f:facet>
+										#{clima.ciudad.nombre}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Temperatura °C</f:facet>
+										#{clima.temperatura}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Temperatura °F</f:facet>
+										#{indexBean.toFahrenheit(clima.temperatura)}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Humedad %</f:facet>
+										#{clima.humedad}
+									</h:column>
+								</h:dataTable>
+							</div>
+						</h:form>
+					</div>
+				</div>
+				<div class="col-md-auto">
+					<div>
+						Máxima Temperatura Registrada:
+						<h:outputText value="#{selectbycityBean.maxweathercity.get(0)} °C" />
+					</div>
+					<div>
+						Máxima Humedad Registrada:
+						<h:outputText value="#{selectbycityBean.maxweathercity.get(1)} %" />
+					</div>
+				</div>
+			</div>
+			<div>
+				<span id="day"> <script
+						type='text/javascript'
+						language='JavaScript'
+						src='http://127.0.0.1:65392/iportal/jsapi'></script> <script
+						type='text/javascript'>
+					actuate.load('viewer');
+					var reqOps = new actuate.RequestOptions( );
+					reqOps.setRepositoryType('Workgroup');
+					reqOps.setCustomParameters({});
+					actuate.initialize( 'http://127.0.0.1:65392/iportal/',reqOps==undefined?null:reqOps, null,null,myInit );
+					function myInit(){viewer1 = new actuate.Viewer( 'container1' );
+					viewer1.setReportDesign('C:/Users/TRABAJO/workspace/BIRT Project/Report Designs/TemperaturaReporte.rptdesign');
+						var parameterValueMap={idCiudad:document.getElementById('form:ciudadlista').value};
+						var parameterValues=[];
+						for(var key in parameterValueMap){
+							var param=new actuate.viewer.impl.ParameterValue();
+							param.setName(key);
+							if(parameterValueMap[key]!=null){
+								param.setValue(parameterValueMap[key]);
+								}else{
+									param.setValueIsNull(true);
+								}parameterValues.push(param);
+							}
+						viewer1.setParameterValues(parameterValues);
+						var options = new actuate.viewer.UIOptions( );
+						viewer1.setUIOptions( options );viewer1.submit();
+					}
+				</script>
+					<div
+						id='container1'
+						style='border-width: 0px; border-style: solid;'></div>
+				</span>
+			</div>
+			<span id="hour"> <script
+					type='text/javascript'
+					language='JavaScript'
+					src='http://127.0.0.1:60814/iportal/jsapi'></script> <script
+					type='text/javascript'>
+					actuate.load('viewer');
+					var reqOps = new actuate.RequestOptions( );
+					reqOps.setRepositoryType('Workgroup');
+					reqOps.setCustomParameters({});
+					actuate.initialize( 'http://127.0.0.1:60814/iportal/',reqOps==undefined?null:reqOps, null,null,myInit );
+					function myInit(){
+						viewer1 = new actuate.Viewer( 'container1' );
+						viewer1.setReportDesign('C:/Users/TRABAJO/workspace/BIRT Project/Report Designs/TempHumiHour.rptdesign');
+						var options = new actuate.viewer.UIOptions( );viewer1.setUIOptions( options );
+						viewer1.submit();
+						}
+					</script>
+				<div
+					id='container1'
+					style='border-width: 0px; border-style: solid;'></div>
+			</span>
 		</div>
-		<div class="row">
-			<div class="col-md-auto">
-				<div class="form-group">
-					<h:form class="form-inline">
-						<div class="table-responsive-sm">
-							<h:dataTable
-								value="#{selectbycityBean.clima}"
-								var="clima"
-								styleClass="table table-bordered table-hover table-sm table-light table-striped"
-								headerClass="thead-light bg-dark text-white"
-								style="width:auto">
-								<h:column>
-									<f:facet name="header">Ciudad</f:facet>
-						#{clima.ciudad.nombre} 
-					</h:column>
-								<h:column>
-									<f:facet name="header">Temperatura °C</f:facet>
-						#{clima.temperatura}
-					</h:column>
-								<h:column>
-									<f:facet name="header">Temperatura °F</f:facet>
-						#{indexBean.toFahrenheit(clima.temperatura)}
-					</h:column>
-								<h:column>
-									<f:facet name="header">Humedad %</f:facet>
-						#{clima.humedad}
-					</h:column>
-							</h:dataTable>
-						</div>
-					</h:form>
-				</div>
-			</div>
-			<div class="col-md-auto">
-				<div>
-					Máxima Temperatura Registrada:
-					<h:outputText value="#{selectbycityBean.maxweathercity.get(0)} °C" />
-				</div>
-				<div>
-					Máxima Humedad Registrada:
-					<h:outputText value="#{selectbycityBean.maxweathercity.get(1)} %" />
-				</div>
-			</div>
-		</div>
-
-		<div
-			id="statistics"
-			class="row"></div>
-
 	</ui:define>
 </ui:composition>
 </html>

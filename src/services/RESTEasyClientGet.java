@@ -52,6 +52,7 @@ public class RESTEasyClientGet {
 					return weather;
 				} catch (ParseException e) {
 					System.out.println("Can't get data");
+					System.out.print(" from this city: "+ciudad);
 					e.printStackTrace();
 					weather.add(0.0);
 					weather.add(0.0);

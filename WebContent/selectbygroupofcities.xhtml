@@ -15,27 +15,87 @@
 	<ui:define name="content">
 		<div
 			class="container"
-			style="margin-top: 20px; margin-left: 30px; margin-bottom: 190px;">
+			style="margin-top: 20px; margin-left: 30px;">
 			<div class="form-group">
 				<div>
 					<h:form>
 						<div class="form-check">
-							<h:selectManyCheckbox
+							<h:selectManyListbox
 								id="grid3"
-								value="#{selectbygroupofcitiesBean.ciudad.idciudad}"
-								layout="pageDirection"
+								value="#{selectbygroupofcitiesBean.idcities}"
 								selectedClass="form-check-label">
 								<f:selectItems
-									value="#{selectbygroupofcitiesBean.listaciudades}" />
-							</h:selectManyCheckbox>
+									value="#{selectbygroupofcitiesBean.listaciudades}"
+									var="city"
+									itemValue="city"
+									itemLabel="city" />
+							</h:selectManyListbox>
 						</div>
 						<h:commandButton
 							styleClass="btn btn-success"
-							value="Submit"
-							update="display"
-							oncomplete="PF('dlg').show()"
-							icon="pi pi-check" />
+							style="width:120px"
+							action="#{selectbygroupofcitiesBean.submit()}"
+							value="Enviar" />
 					</h:form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-auto">
+					<div class="form-group">
+						<h:form class="form-inline">
+							<div class="table-responsive-sm">
+								<h:dataTable
+									value="#{selectbygroupofcitiesBean.weather}"
+									var="clima"
+									styleClass="table table-bordered table-hover table-sm table-light table-striped"
+									headerClass="thead-light bg-dark text-white"
+									style="width:auto">
+									<h:column>
+										<f:facet name="header">Ciudad</f:facet>
+										#{clima.ciudad.nombre}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Temperatura °C</f:facet>
+										#{clima.temperatura}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Temperatura °F</f:facet>
+										#{indexBean.toFahrenheit(clima.temperatura)}
+									</h:column>
+									<h:column>
+										<f:facet name="header">Humedad %</f:facet>
+										#{clima.humedad}
+									</h:column>
+								</h:dataTable>
+							</div>
+							<div class="table-responsive-sm">
+								<h:dataTable
+									value="#{selectbygroupofcitiesBean.maxTemp}"
+									var="Temp"
+									styleClass="table table-bordered table-hover table-sm table-light table-striped"
+									headerClass="thead-light bg-dark text-white"
+									style="width:auto">
+									<h:column>
+										<f:facet name="header">Maxima Temperatura</f:facet>
+										#{Temp}
+									</h:column>
+								</h:dataTable>
+							</div>
+							<div class="table-responsive-sm">
+								<h:dataTable
+									value="#{selectbygroupofcitiesBean.maxHumi}"
+									var="Humi"
+									styleClass="table table-bordered table-hover table-sm table-light table-striped"
+									headerClass="thead-light bg-dark text-white"
+									style="width:auto">
+									<h:column>
+										<f:facet name="header">Maxima Humedad</f:facet>
+										#{Humi}
+									</h:column>
+								</h:dataTable>
+							</div>
+						</h:form>
+					</div>
 				</div>
 			</div>
 		</div>

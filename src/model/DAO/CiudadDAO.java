@@ -48,7 +48,6 @@ public class CiudadDAO {
 
 	public Ciudad select(int id) {
 		Ciudad ciudad = em.find(Ciudad.class, id);
-		em.close();
 		return ciudad;
 	}
 
