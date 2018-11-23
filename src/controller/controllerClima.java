@@ -48,7 +48,6 @@ public class controllerClima {
 	}
 
 	public Clima selectWeather(int id) {
-
 		DAOClima = new ClimaDAO();
 		Clima clima = DAOClima.selectlastwheaterbycity(id);
 		return clima;
@@ -58,7 +57,7 @@ public class controllerClima {
 		RESTEasyClientGet rest = new RESTEasyClientGet();
 		for (Ciudad c : cities) {
 			List<Double> weather = rest.Temp(c.getNombre());
-			createClima(true, weather.get(0), weather.get(1), c);
+			this.createClima(true, weather.get(0), weather.get(1), c);
 		}
 	}
 
@@ -114,9 +113,6 @@ public class controllerClima {
 		}
 		humiHour.add(sumHum / step);
 		hour.add(currenthour);
-		for (int i = 0; i < hour.size(); i++) {
-			System.out.println("Hora: " + hour.get(i) + " Temp: " + humiHour.get(i) + " Humd: ");
-		}
 		return humiHour;
 	}
 
@@ -141,9 +137,7 @@ public class controllerClima {
 		}
 		tempHour.add(sumTemp / step);
 		hour.add(currenthour);
-		for (int i = 0; i < hour.size(); i++) {
-			System.out.println("Hora: " + hour.get(i) + " Temp: " + tempHour.get(i) + " Humd: ");
-		}
+		
 		return tempHour;
 	}
 
@@ -162,14 +156,11 @@ public class controllerClima {
 			step++;
 		}
 		hour.add(currenthour);
-		for (int i = 0; i < hour.size(); i++) {
-			System.out.println("Hora: " + hour.get(i));
-		}
 		return hour;
 	}
 
 	public double coefPearson(int id) {
-		List<Clima> weather = DAOClima.selectallbycity(id);
+		List<Clima> weather = DAOClima.selectallbycity2(id);
 		double sumX = 0, sumY = 0, sumXX = 0, sumYY = 0, sumXY = 0;
 		int n = 0;
 		for (Clima c : weather) {
@@ -186,4 +177,4 @@ public class controllerClima {
 		return sigmaXY/(sigmaX*sigmaY);
 	}
 }
-//heroku war:deploy "C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/ClimaProyecto.war" --app climaproject
+//heroku war:deploy "C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/ClimaProyecto4.war" --app climaproject

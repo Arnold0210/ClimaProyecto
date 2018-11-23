@@ -112,6 +112,5 @@ public class SelectbygroupofcitiesBean {
 		this.setWeather(weathers);
 		this.setMaxTemp(maxT);
 		this.setMaxHumi(maxH);
-		System.out.println(this.getWeather());
 	}
 }

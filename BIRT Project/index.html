@@ -1,0 +1,37 @@
+<h1>BIRT Project</h1>
+<hr>
+<script type='text/javascript' language='JavaScript'
+	src='http://127.0.0.1:58342/iportal/jsapi'></script>
+<script type='text/javascript'>
+	actuate.load('viewer');
+	var reqOps = new actuate.RequestOptions();
+	reqOps.setRepositoryType('Workgroup');
+	reqOps.setCustomParameters({});
+	actuate.initialize('http://127.0.0.1:58342/iportal/',
+			reqOps == undefined ? null : reqOps, null, null, myInit);
+	function myInit() {
+		viewer1 = new actuate.Viewer('container1');
+		viewer1
+				.setReportDesign('C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/BIRT/BIRT Project/Report Designs/Report.rptdesign');
+		var parameterValueMap = {
+			idCiudadHour : document.getElementById('form:ciudadlista').value,
+			idCiudadDate : document.getElementById('form:ciudadlista').value
+		};
+		var parameterValues = [];
+		for ( var key in parameterValueMap) {
+			var param = new actuate.viewer.impl.ParameterValue();
+			param.setName(key);
+			if (parameterValueMap[key] != null) {
+				param.setValue(parameterValueMap[key]);
+			} else {
+				param.setValueIsNull(true);
+			}
+			parameterValues.push(param);
+		}
+		viewer1.setParameterValues(parameterValues);
+		var options = new actuate.viewer.UIOptions();
+		viewer1.setUIOptions(options);
+		viewer1.submit();
+	}
+</script>
+<div id='container1' style='border-width: 0px; border-style: solid;'></div>

@@ -96,50 +96,50 @@
 					</div>
 					<div>
 						Coeficiente de Correlación de Pearson:
-						<h:outputText value="#{selectbycityBean.maxweathercity.get(1)}" />
+						<h:outputText value="#{selectbycityBean.coefPearson}" />
 					</div>
 				</div>
+				<script
+					type='text/javascript'
+					language='JavaScript'
+					src='http://127.0.0.1:64603/iportal/jsapi'></script>
+				<script type='text/javascript'>
+	actuate.load('viewer');
+	var reqOps = new actuate.RequestOptions();
+	reqOps.setRepositoryType('Workgroup');
+	reqOps.setCustomParameters({});
+	actuate.initialize('http://127.0.0.1:64603/iportal/',
+			reqOps == undefined ? null : reqOps, null, null, myInit);
+	function myInit() {
+		var url = 'C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/BIRT Project/Report Designs/Report.rptdesign'
+		viewer1 = new actuate.Viewer('container1');
+		viewer1
+				.setReportDesign(url);
+		var parameterValueMap = {
+			idCiudadHour : document.getElementById('form:ciudadlista').value,
+			idCiudadDate : document.getElementById('form:ciudadlista').value
+		};
+		var parameterValues = [];
+		for ( var key in parameterValueMap) {
+			var param = new actuate.viewer.impl.ParameterValue();
+			param.setName(key);
+			if (parameterValueMap[key] != null) {
+				param.setValue(parameterValueMap[key]);
+			} else {
+				param.setValueIsNull(true);
+			}
+			parameterValues.push(param);
+		}
+		viewer1.setParameterValues(parameterValues);
+		var options = new actuate.viewer.UIOptions();
+		viewer1.setUIOptions(options);
+		viewer1.submit();
+	}
+</script>
+				<div
+					id='container1'
+					style='border-width: 0px; border-style: solid;'></div>
 			</div>
-			<script
-				type='text/javascript'
-				language='JavaScript'
-				src='http://127.0.0.1:49809/iportal/jsapi'></script>
-			<script type='text/javascript'>
-					actuate.load('viewer');
-					var reqOps = new actuate.RequestOptions();
-					reqOps.setRepositoryType('Workgroup');
-					reqOps.setCustomParameters({});
-					actuate.initialize('http://127.0.0.1:49809/iportal/',
-							reqOps == undefined ? null : reqOps, null, null,
-							myInit);
-					function myInit() {
-						viewer1 = new actuate.Viewer('container1');
-						viewer1.setReportDesign('C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/Report Designs/Report.rptdesign');
-						var parameterValueMap = {
-							idCiudadHour : document.getElementById('form:ciudadlista').value,
-							idCiudadDate : document.getElementById('form:ciudadlista').value
-						};
-						var parameterValues = [];
-						for ( var key in parameterValueMap) {
-							var param = new actuate.viewer.impl.ParameterValue();
-							param.setName(key);
-							if (parameterValueMap[key] != null) {
-								param.setValue(parameterValueMap[key]);
-							} else {
-								param.setValueIsNull(true);
-							}	
-							parameterValues.push(param);
-						}
-						viewer1.setParameterValues(parameterValues);
-						var options = new actuate.viewer.UIOptions();
-						viewer1.setUIOptions(options);
-						viewer1.submit();
-					}
-				</script>
-			<div
-				id='container1'
-				style='border-width: 0px; border-style: solid; width: auto;'></div>
-
 		</div>
 	</ui:define>
 </ui:composition>

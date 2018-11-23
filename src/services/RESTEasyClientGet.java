@@ -49,9 +49,11 @@ public class RESTEasyClientGet {
 					weather.add(humidity);
 					weather.add(temp);
 					//System.out.println("Humedad: "+weather.get(0)+",Temperatura: "+weather.get(1));
+					//System.out.println("Ciudad bien:"+ciudad);
 					return weather;
+					
 				} catch (ParseException e) {
-					System.out.println("Can't get data");
+					System.out.println("Can't get data-catch1");
 					System.out.print(" from this city: "+ciudad);
 					e.printStackTrace();
 					weather.add(0.0);
@@ -59,13 +61,15 @@ public class RESTEasyClientGet {
 					return weather;
 				}
 			} else {
-				System.out.println("Can't get data");
+				System.out.println("Can't get data-if1");
+				System.out.print(" from this city: "+ciudad);
 				weather.add(0.0);
 				weather.add(0.0);
 				return weather;
 			}
 		} catch (IOException e) {
-			System.out.println("Can't get data");
+			System.out.println("Can't get data-catch2");
+			System.out.print(" from this city: "+ciudad);
 			e.printStackTrace();
 			weather.add(0.0);
 			weather.add(0.0);

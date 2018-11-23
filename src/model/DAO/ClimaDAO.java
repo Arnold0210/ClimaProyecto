@@ -78,6 +78,13 @@ public class ClimaDAO {
 		return clima;
 	}
 
+	public List<Clima> selectallbycity2(int id) {
+		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycity", Clima.class);
+		query.setParameter("idciudad", id);
+		List<Clima> clima = query.getResultList();
+		return clima;
+	}
+
 	public Clima selectlastwheaterbycity(int id) {
 
 		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectweatherbycity", Clima.class);
@@ -173,7 +180,8 @@ public class ClimaDAO {
 		List<Date> date = query.getResultList();
 		return date;
 	}
-	public List<Clima> getWeatherLastDay(int id){
+
+	public List<Clima> getWeatherLastDay(int id) {
 		TypedQuery<Clima> query = em.createNamedQuery("Clima.selectdateWeather", Clima.class);
 		query.setParameter("idciudad", id);
 		List<Clima> clima = query.getResultList();

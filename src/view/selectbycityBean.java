@@ -42,10 +42,7 @@ public class selectbycityBean {
 		setCoefPearson(controllerClima.coefPearson(1));
 	}
 
-	@PostConstruct
-	public void initialize() {
-
-	}
+	
 
 	public Ciudad getCiudad() {
 		return ciudad;
