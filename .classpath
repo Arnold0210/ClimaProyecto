@@ -6,7 +6,7 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Configuraciones eclipse archivos/mfz-rxtx-2.2-20081207-win-x64/RXTXcomm.jar">
+	<classpathentry kind="lib" path="A:/2018-III/Arquitectura de Software/Configuraciones eclipse archivos/mfz-rxtx-2.2-20081207-win-x64/RXTXcomm.jar">
 		<attributes>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Configuraciones eclipse archivos/mfz-rxtx-2.2-20081207-win-x64"/>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
@@ -24,21 +24,21 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JAXRS - RestEasy"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/Gson"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Configuraciones eclipse archivos/json-simple-1.1.jar/json-simple-1.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/TRABAJO/Documents/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jstl-1.2.jar" sourcepath="C:/Users/TRABAJO/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2-sources.jar"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/EclipseLink 2.5.2">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-			<attribute name="owner.project.facets" value="jpt.jpa"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="A:/2018-III/Arquitectura de Software/Configuraciones eclipse archivos/json-simple-1.1.jar/json-simple-1.1.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 			<attribute name="owner.project.facets" value="jst.jsf"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EclipseLink 2.5.2">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jpt.jpa"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="A:/2018-III/Arquitectura de Software/Sensor Temperatura/ClimaProyecto/jstl-1.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JAXRS - RestEasy"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
